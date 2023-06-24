@@ -1,0 +1,634 @@
+
+#Home table {
+    border-collapse: collapse;
+    width: 97%;
+    margin-left: 20px;
+    font-size: smaller;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  .like-btn, .dislike-btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    width: max-content;
+  }
+  
+  .vote-count {
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  
+  .donate-message {
+    width: 370px;
+    height: 40px;
+  }
+  
+  .donate-btn {
+    padding: 4px 8px;
+    background-color:  rgb(255, 255, 152);
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+    width: 40%;
+    margin: auto;
+  }
+  
+
+  
+  .piggy-wrapper {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 0px;
+    z-index: -1;
+  }
+  
+  .piggy-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    transform-origin: bottom center;
+    animation: trembling 5s linear infinite;
+  }
+  
+  @keyframes trembling {
+    0% {
+      transform: scale(1);
+    }
+  
+    19% {
+      transform: scale(1);
+    }
+  
+    21% {
+      transform: scale(0.99);
+    }
+  
+    22% {
+      transform: scale(1);
+    }
+  
+    23% {
+      transform: scale(0.99);
+    }
+  
+    24% {
+      transform: scale(1);
+    }
+  
+    25% {
+      transform: scale(0.99);
+    }
+  
+    26% {
+      transform: scale(1);
+    }
+  
+    25% {
+      transform: scale(0.99);
+    }
+  
+    26% {
+      transform: scale(1);
+    }
+  
+    27% {
+      transform: scale(0.99);
+    }
+  
+    28% {
+      transform: scale(1);
+    }
+  
+    29% {
+      transform: scale(0.99);
+    }
+  
+    30% {
+      transform: scale(1);
+    }
+  
+    60% {
+      transform: scale(0.95);
+    }
+  
+    61% {
+      transform: scale(1);
+    }
+  
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .piggy {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    margin-left: -160px;
+    width: 270px;
+    height: 200px;
+    display: block;
+    border-radius: 100px;
+    background-color: #d88fa0;
+  }
+  
+  .nose {
+    position: absolute;
+    top: 80px;
+    left: -25px;
+    width: 40px;
+    height: 60px;
+    display: block;
+    background-color: #d88fa0;
+    z-index: 1;
+    border-radius: 4px;
+  }
+  
+  .mouth {
+    position: absolute;
+    top: 95px;
+    left: -15px;
+    width: 0;
+    height: 0;
+    z-index: 8;
+    display: block;
+    border-bottom: 60px solid #d88fa0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-radius: 4px;
+  }
+  
+  .ear {
+    position: absolute;
+    top: -35px;
+    left: 70px;
+    width: 45px;
+    height: 40px;
+    display: block;
+    border-top-right-radius: 60px;
+    background-color: #d88fa0;
+    z-index: 1;
+  }
+  
+  .piggy:before {
+    position: absolute;
+    content: '';
+    top: -25px;
+    left: 55px;
+    width: 60px;
+    height: 60px;
+    display: block;
+    border-top-right-radius: 60px;
+    background-color: #cb6980;
+    z-index: -1;
+  }
+  
+  .tail {
+    position: absolute;
+    left: 254px;
+    top: 125px;
+  }
+  
+  .tail span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 5px;
+    transform: rotate(30deg);
+    background-color: #d88fa0;
+  }
+  
+  .tail span:nth-child(2) {
+    left: 3px;
+    top: -38px;
+    width: 50px;
+    height: 50px;
+    transform: rotate(-20deg);
+    background-color: transparent;
+    border-radius: 50%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #d88fa0 #d88fa0 transparent;
+  }
+  
+  .tail span:nth-child(3) {
+    left: 22px;
+    top: -36px;
+    width: 30px;
+    height: 30px;
+    transform: rotate(-40deg);
+    background-color: transparent;
+    border-radius: 50%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #d88fa0 transparent transparent #d88fa0;
+  }
+  
+  .tail span:nth-child(4) {
+    left: 7px;
+    top: -66px;
+    width: 60px;
+    height: 60px;
+    transform: rotate(-40deg);
+    background-color: transparent;
+    border-radius: 50%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #d88fa0 transparent;
+  }
+  
+  .eye {
+    position: absolute;
+    left: 35px;
+    top: 75px;
+    width: 30px;
+    height: 30px;
+    transform: rotate(45deg);
+    border-radius: 50%;
+    border-width: 4px;
+    border-style: solid;
+    border-color: #555 transparent transparent #555;
+    animation: blink 5s linear infinite;
+  }
+  
+  @keyframes blink {
+    0% {
+      border-color: #555 transparent transparent #555;
+    }
+  
+    19% {
+      border-color: #555 transparent transparent #555;
+    }
+  
+    20% {
+      border-color: transparent #555 #555 transparent;
+    }
+  
+    60% {
+      border-color: transparent #555 #555 transparent;
+    }
+  
+    61% {
+      border-color: #555 transparent transparent #555;
+    }
+  
+    100% {
+      border-color: #555 transparent transparent #555;
+    }
+  }
+  
+  .hole {
+    position: absolute;
+    left: 121px;
+    top: 0;
+    width: 60px;
+    height: 5px;
+    background-color: #555;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  .coin-wrap {
+    position: absolute;
+    top: 0;
+    left: -8px;
+    z-index: 9;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform-origin: bottom center;
+    animation: trembling 5s linear infinite, moveCoin 5s linear infinite;
+  }
+  
+  .coin {
+    position: absolute;
+    top: 110px;
+    left: 143px;
+    z-index: 9;
+    width: 61.5px;
+    height: 61.5px;
+    border-radius: 50%;
+    border: 6px solid #e67e22;
+    background-color: #f39c12;
+    text-align: center;
+    line-height: 68px;
+    font-size: 45px;
+    font-weight: 500;
+    color: rgba(32,32,32,0.5);
+    box-shadow: inset 0 0 4px #777;
+  }
+  
+  @keyframes moveCoin {
+    0% {
+      opacity: 0;
+      top: 0;
+    }
+  
+    19% {
+      opacity: 1;
+      top: 0;
+    }
+  
+    21% {
+      top: -7px;
+    }
+  
+    22% {
+      top: -7px;
+    }
+  
+    23% {
+      top: -14px;
+    }
+  
+    24% {
+      top: -14px;
+    }
+  
+    25% {
+      top: -21px;
+    }
+  
+    26% {
+      top: -21px;
+    }
+  
+    27% {
+      top: -28px;
+    }
+  
+    28% {
+      top: -28px;
+    }
+  
+    29% {
+      top: -35px;
+    }
+  
+    30% {
+      top: -35px;
+    }
+  
+    60% {
+      top: -35px;
+    }
+  
+    66% {
+      top: -220px;
+      opacity: 1;
+    }
+  
+    67% {
+      top: -220px;
+      opacity: 0;
+    }
+  
+    99% {
+      top: 0;
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 0;
+      top: 0;
+    }
+  }
+  
+  .legs {
+    position: absolute;
+    bottom: 14px;
+    left: 96px;
+    width: 40px;
+    height: 60px;
+    display: block;
+    background-color: #cb6980;
+    border-radius: 3px;
+    z-index: 1;
+  }
+  
+  .legs:after {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 12px;
+    display: block;
+    background-color: #d88fa0;
+    border-bottom-left-radius: 3px;
+    border-top-right-radius: 3px;
+    z-index: 1;
+  }
+  
+  .legs.back {
+    left: 206px;
+  }
+
+
+
+  .banner {
+    margin-left: 5em;
+    left: 0;
+    bottom: 0;
+    margin-right: 1em;
+    border-bottom: none;
+}
+
+.banner a {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #0000008e;
+    border-radius: 60%;
+    border: none;
+    text-decoration: none;
+    border: solid rgba(121, 253, 255, 0.874);
+    
+}
+
+.banner a img {
+    width: 100%;
+    height: auto;
+}
+  #canvas {
+    background: url('https://marclopezavila.github.io/planet-defense-game/img/space.jpg') no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+#canvas.playing {
+    cursor: url('https://marclopezavila.github.io/planet-defense-game/img/aim_red.png') 17.5 17.5,auto !important;
+}
+
+
+/* Reset some default styles */
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the homepage-featured-events section */
+.homepage-featured-events {
+  background-color: #000000d5;
+  padding: 50px 0;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  padding-left: 30px;
+}
+
+.containersss {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.event {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.event-image {
+  flex: 0 0 40%;
+  overflow: hidden;
+  
+}
+
+.event-image img {
+  width: 85%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.event-details {
+  flex: 0 0 60%;
+  background-color: #5d5d5d88;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.event-date {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #8af7ffd6;
+  font-size: 17px;
+}
+
+.event-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.event-description {
+  color: #949494;
+}
+
+
+.bg {
+  padding: 0px;
+  border-radius: 10px;
+  background-color: var(--base-color);
+  --base-color: #00000000;
+ /*use your base color*/
+}
+
+.load {
+  width: 60px;
+  height: 40px;
+  position: relative;
+  display: inline-block;
+  background-color: #000000; /* Change background color to black */
+}
+
+.load::before {
+  content: '';
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #FFFFFF; /* Change gear color to white */
+  background-image: radial-gradient(circle 8px at 18px 18px, #000000 100%, transparent 0), radial-gradient(circle 4px at 18px 0px, #000000 100%, transparent 0), radial-gradient(circle 4px at 0px 18px, #000000 100%, transparent 0), radial-gradient(circle 4px at 36px 18px, #000000 100%, transparent 0), radial-gradient(circle 4px at 18px 36px, #000000 100%, transparent 0), radial-gradient(circle 4px at 30px 5px, #000000 100%, transparent 0), radial-gradient(circle 4px at 30px 5px, #000000 100%, transparent 0), radial-gradient(circle 4px at 30px 30px, #000000 100%, transparent 0), radial-gradient(circle 4px at 5px 30px, #000000 100%, transparent 0), radial-gradient(circle 4px at 5px 5px, #000000 100%, transparent 0);
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  animation: rotationBack 3s linear infinite;
+}
+
+.load::after {
+  content: '';
+  left: 35px;
+  top: 15px;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #FFFFFF; /* Change gear color to white */
+  background-image: radial-gradient(circle 5px at 12px 12px, #000000 100%, transparent 0), radial-gradient(circle 2.5px at 12px 0px, #000000 100%, transparent 0), radial-gradient(circle 2.5px at 0px 12px, #000000 100%, transparent 0), radial-gradient(circle 2.5px at 24px 12px, #000000 100%, transparent 0), radial-gradient(circle 2.5px at 12px 24px, #000000 100%, transparent 0), radial-gradient(circle 2.5px at 20px 3px, #000000 100%, transparent 0), radial-gradient(circle 2.5px at 20px 3px, #000000 100%, transparent 0), radial-gradient(circle 2.5px at 20px 20px, #000000 100%, transparent 0), radial-gradient(circle 2.5px at 3px 20px, #000000 100%, transparent 0), radial-gradient(circle 2.5px at 3px 3px, #000000 100%, transparent 0);
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  animation: rotationBack 4s linear infinite reverse;
+}
+
+
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}  
+
+
+
+
+
+.slick-slide {
+  margin: 0 10px;
+}
+
+.autoplay {
+  width: 600px; /* Đặt chiều rộng của khung trượt */
+  overflow: hidden; /* Ẩn phần dư thừa */
+}
+
+.sld {
+  display: flex; /* Hiển thị các phần tử con trên một dòng */
+  justify-content: center; /* Căn giữa các phần tử con ngang */
+}
+
+.sld img {
+  max-width: 100%; /* Ảnh co lại để vừa khung trượt */
+}

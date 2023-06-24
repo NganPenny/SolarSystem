@@ -1,0 +1,2279 @@
+  <!DOCTYPE html>
+<html>
+<head>
+    <title>SolarSystem</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/2240/2240662.png">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="style2.css">
+        <link rel="stylesheet" type="text/css" href="style3.css">
+
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+    <script src="path/to/my/script.js" rel="preload" as="script"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src='https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <style>
+
+
+        #canvas-containers {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+    <script src="clock.js"></script>
+</head>
+<body>
+    <div class="tab-container" style="padding-top: 5px;">
+      <div id="container-stars">
+        <div id="stars"></div>
+      </div>
+        <a href="#" style="text-decoration: none; margin-right: 150px; margin-left: 20px; font-family: 'Dancing Script', cursive; color: rgb(170, 255, 255); font-size: 34px;">
+          <span class="solar-system-text">Solar System</span>
+        <img src="https://cdn-icons-png.flaticon.com/512/2240/2240662.png" style="width: 35px; float: left; padding-right: 10px; padding-top: 5px;" alt="Space">
+        </a><br>
+        
+        <a href="#" class="tab" data-tab="Home" style="text-decoration: none; width: 100px; height: 36px;">Home</a>
+        <a href="#sun" class="tab" data-tab="sun" style="text-decoration: none; width: 100px; height: 36px;">Sun & Moon</a>
+        <div class="dropdown">
+          <div class="bth1" style=" width: 120px; height: 34px; font-size: 12px;"><div style="display: flex; align-items: center;"><img src="https://cdn2.iconfinder.com/data/icons/technology-and-security/53/42-256.png" alt="Urgent icon" style="height: 15px;"><div style="text-transform:none; color: rgb(255, 38, 0);"><i><b>Urgent</b></i></div></div>Planets</div>           
+          <div class="dropdown-content">      
+              <a href="#mercury" class="tab" data-tab="mercury">Mercury</a>
+              <a href="#venus" class="tab" data-tab="venus">Venus</a>
+              <a href="#earth" class="tab" data-tab="earth">Earth</a>
+              <a href="#mars" class="tab" data-tab="mars">Mars</a>
+              <a href="#jupiter" class="tab" data-tab="jupiter">Jupiter</a>
+              <a href="#saturn" class="tab" data-tab="saturn">Saturn</a>
+              <a href="#uranus" class="tab" data-tab="uranus">Uranus</a>
+              <a href="#neptune" class="tab" data-tab="neptune">Neptune</a>
+            </div>
+            
+          </div>
+          <a id="solarTab" href="#solar" class="tab" data-tab="solar" style="text-decoration: none;width: 100px;height: 37px;display: flex;align-items: center;">
+            <img src="https://cdn2.iconfinder.com/data/icons/sustainable-energy-flat/64/sustainable_energy-19-512.png" style="width: 40%;margin-right: 10px;">
+            <span style="float: left;">3D Solar</span>
+        </a>
+          <a href="#hotnews" class="tab" data-tab="hotnews" style=" width: 120px; height: 34px; font-size: 12px; text-decoration: none;"><div style="display: flex; align-items: center;">
+            <img src="https://cdn-icons-png.flaticon.com/128/331/331953.png" alt="Urgent icon" style="height: 15px; margin-right: 1px;">
+            <div style="text-align: center; text-transform: none; color: rgb(255, 38, 0);">
+                <i><b>Hot</b></i>
+            </div>
+        </div>News</a>
+
+        
+          <a href="#register" class="tab" data-tab="register" style="text-decoration: none;width: 120px;height: 37px; font-size: 11px;">Register / Sign In</a>
+          <div class="banner">
+            <a href="#entertain" class="tab" data-tab="entertain">
+                <img src="https://cdn-icons-png.flaticon.com/512/1740/1740645.png" alt="game">
+            </a>
+        </div>
+          <div id="clock" style="color: #afffff; font-size: 15px; border-left: #afffff solid 5px; padding-left: 0px;"></div>
+        </div>
+        
+    <header>
+      
+        <div class="cards">
+
+            <div class="cards-info">
+                <h1 style="font-family: 'Dancing Script', cursive; font-size:150px;">Solar System</h1><br>
+                
+        </div>
+
+
+
+
+        <p style="color: rgb(255, 253, 196); text-align: center;font-family: 'Quicksand', sans-serif; font-size: 20px;"><i>See beauty from the distance</i></p>
+        <hr style="width: 30%;">
+        <div class="loaderr">
+          <svg viewBox="0 0 80 80">
+              <circle id="test" cx="40" cy="40" r="32"></circle>
+          </svg>
+      </div>
+      
+      <div class="loaderr triangle">
+          <svg viewBox="0 0 86 80">
+              <polygon points="43 8 79 72 7 72"></polygon>
+          </svg>
+      </div>
+      
+      <div class="loaderr">
+          <svg viewBox="0 0 80 80">
+              <rect x="8" y="8" width="64" height="64"></rect>
+          </svg>
+      </div>
+      </div>
+
+      </header>
+
+
+<main>
+
+  <section id="solar">
+    
+    <div id="canvas-containers"></div>
+    
+  </section>
+<section id="sun" style="color: aliceblue; text-align: center; ">
+  <div class="slide">
+  <div id="sun"style="display: flex; height: 100vh;">
+    <div style="flex: 1;">
+      <div style="background-color: rgba(0, 0, 0, 0.3); padding: 20px; height: auto;">
+        <h1 style="color: white; font-size: 126px; text-align: left; margin-top: 20vh; padding-left: 70px; margin-bottom: 20px;">Sun</h1>
+        <p style="color: white; text-align: left; padding-left: 70px;">The Sun is the star at the center of the Solar System. It is a nearly perfect sphere of hot plasma...</p>
+        <p style="color: white; text-align: left; padding-left: 70px;">The Sun holds the solar system together, keeping everything – from the biggest planets to the smallest debris – in its orbit.
+        </p>
+
+        <table style="margin: 0 auto; border-collapse: collapse; margin-top: 10vh; width: 100%; margin-left: 30px;">
+          <tr style="color: rgb(213, 82, 0); border-bottom: none; font-size: 30px;">
+            <th style="background-color: #00000074; text-align: center; border-bottom: none; width: 35%;">Star-type</th>
+            <th style="background-color: #00000074; text-align: center; border-bottom: none; width: 35%;">Age</th>
+            <th style="background-color: #00000074; text-align: center; border-bottom: none; width: 35%;">Distance</th>
+          </tr>
+          <tr style="font-size: 15px;">
+            <td style="text-align: center;border-bottom: none;">G-type main-sequence star</td>
+            <td style="text-align: center;border-bottom: none;">4.6 billion years</td>
+            <td style="text-align: center;border-bottom: none;">26,000 light-years</td>
+          </tr>
+        </table>
+        
+        
+      </div>
+    </div>
+    <div style="background-image: url('https://pluspng.com/img-png/sun-png-bright-sun-2249.png'); background-size: cover; padding: 20px; flex: 0.85;"></div>
+ </div>
+
+ <div style="display: flex; background-color: rgb(186, 186, 186); color: black; padding-top: 50px; margin-top: 0px;">
+  <div style="padding-left: 40px; padding-top: 30px;">
+    <img src="https://p0.pikist.com/photos/1005/660/space-planet-earth-orbit-sky-solar-system-galaxy-star-night.jpg" alt="The Sun" style="width: 4000px; border-radius: 25%;">
+  </div>
+  <div style="display: inline-block; margin-left: 100px; margin-bottom: 100px; padding-right: 50px;">
+    <h4 style=" display: inline-block; border-bottom: solid #474747d2; padding-bottom: 10px; color: #3f1e1ed2;">Relationship: The Sun, The Moon & The Earth</h4>
+    <p>
+      The relationship between the Sun, Moon, and Earth is a complex one that has been studied and explored for centuries. The Sun is the central star of our solar system, providing light and heat to the Earth, which orbits around it. The Moon, in turn, orbits around the Earth, reflecting sunlight to create the phases of the lunar cycle.
+
+The gravitational pull of the Moon on the Earth causes tides in the oceans, while the rotation of the Earth on its axis creates day and night. The tilt of the Earth's axis also creates the seasons, as different parts of the planet are exposed to varying amounts of sunlight throughout the year.
+
+The Sun, Moon, and Earth also interact in more subtle ways, such as the way in which the Moon's orbit affects the Earth's rotation and the Earth's magnetic field. Scientists continue to study and learn about the intricacies of this relationship, which has played a fundamental role in the development and evolution of life on our planet.
+    </p>
+  </div>
+  
+</div>
+        <table class="wikitable" style="width: 80%; height: auto; margin: auto; border: rgb(255, 255, 255) solid 3px;" >
+            <caption style="padding: 30px 30px; font-size: 35px;">Timeline of formation and evolution of the Solar System</caption>
+            <tbody>
+              <tr>
+                <th style="background-color: #fa8787;">Period</th>
+                <th style="background-color: #7add73;">Time since solar system formation</th>
+                <th style="background-color: #cb648f;">Time from present (approx.)</th>
+                <th style="background-color: #b4c463;">Event</th>
+              </tr>
+              <tr>
+                <td>Pre-solar nebula</td>
+                <td>Billions of years before solar system formation</td>
+                <td>Over 4.6 billion years ago</td>
+                <td>Generations of older stars lived and died, releasing heavy elements into the interstellar environment from which the Solar System formed.[13]</td>
+              </tr>
+              <tr>
+                <td>~50 million years before solar system formation</td>
+                <td>4.6 billion years ago</td>
+                <td>If the Sun formed in a region like the Orion Nebula, most of the giant stars had already died and exploded as supernovae. A supernova triggered the collapse of a primitive supergiant molecular cloud core, leading to the formation of the Solar System.[15][16]</td>
+              </tr>
+              <tr>
+                <td>Sun formation</td>
+                <td>0-100,000 years</td>
+                <td>4.6 billion years ago</td>
+                <td>The protoplanetary disk collapses, forming the Sun.[29]</td>
+              </tr>
+              <tr>
+                <td>100,000-50 million years</td>
+                <td>4.6 billion years ago</td>
+                <td>The Sun is a T Tauri star.[8]</td>
+              </tr>
+              <tr>
+                <td>100,000-10 million years</td>
+                <td>4.6 billion years ago</td>
+                <td>Outer planets form. Within about 10 million years, gas in the protoplanetary disk is blown away, and the formation of outer planets is complete.[29]</td>
+              </tr>
+              <tr>
+                <td>10-100 million years</td>
+                <td>4.5-4.6 billion years ago</td>
+                <td>Terrestrial planets form. Large impacts occur. Water is delivered to Earth.[50]</td>
+              </tr>
+              <tr>
+                <td>Main sequence</td>
+                <td>50 million years</td>
+                <td>4.5 billion years ago</td>
+                <td>The Sun becomes a main-sequence star.[25]</td>
+              </tr>
+              <tr>
+                <td>200 million years</td>
+                <td>4.4 billion years ago</td>
+                <td>The oldest known rocks on Earth form.[116][118]</td>
+              </tr>
+              <tr>
+                <td>500-600 million years</td>
+                <td>4.0-4.1 billion years ago</td>
+                <td>Solar System's configuration of Jupiter-Saturn-Neptune-Uranus pushes Neptune outwards into the Kuiper belt. The final intense meteorite bombardment occurs in the inner Solar System.[50]</td>
+              </tr>
+              <tr>
+                <td>800 million years</td>
+                <td>3.8 billion years ago</td>
+                <td>The earliest known life forms develop on Earth.[61][118] The Oort cloud reaches its maximum mass.[64]</td>
+              </tr>
+              <tr>
+                <td>Present</td>
+                <td>4.6 billion years</td>
+                <td>The Sun continues to warm and brighten at a rate of ~10% every billion years.[94]</td>
+              </tr>
+              <tr>
+                <td>6 billion years</td>
+                <td>1.4 billion years from now</td>
+                <td>Sun's habitable zone moves outwards beyond Earth's orbit, possibly reaching Mars's orbit.[97]</td>
+              </tr>
+              <tr>
+                <td>7 billion years</td>
+                <td>2.4 billion years from now</td>
+                <td>The Milky Way and Andromeda galaxies begin to collide. There is a small chance the Sun will be captured by Andromeda before the two galaxies merge completely.[113]</td>
+              </tr>
+              <tr>
+            <td>Post-main sequence</td>
+            <td>10-12 billion years</td>
+            <td>5-7 billion years from now</td>
+            <td>The Sun begins to burn hydrogen in its outer shell, expanding, shining brighter, and cooling: it becomes a red giant star. The Sun may swallow Mercury, Venus, and possibly Earth.[95][100] Saturn's moon Titan may become habitable.[102]</td>
+          </tr>
+          <tr>
+            <td>~12 billion years</td>
+            <td>~7 billion years from now</td>
+            <td>The Sun passes through successive stages of expansion and contraction, losing about 30% of its mass in all these phases. The near-final phase (asymptotic-giant-branch phase) ends with the ejection of a planetary nebula, leaving behind a core that becomes a white dwarf star.[95][105]</td>
+          </tr>
+          <tr>
+            <td>Sun remnant</td>
+            <td>~1 quintillion years (10^15 years)</td>
+            <td>~1 quintillion years from now</td>
+            <td>The Sun cools down to about 5K. Gravity from passing stars dislodges planets from their orbits. The Solar System ceases to exist.[2]</td>
+          </tr>
+          </tbody>
+          </table><br><br>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Sun_Life.png/640px-Sun_Life.png" alt="The Sun" style="width: 800px;">
+          <br><br>
+
+          <div style="background-color: rgb(186, 186, 186); padding-top: 60px;">
+          <h2 class="title" style="display: flex; align-items: center; justify-content: center; text-align: center; margin-bottom: 30px; color: #3f1e1ed2;">
+            <span class="hr" style="width: 50%; height: 1px; background-color: rgba(80, 80, 80, 0.616); margin: 0 10px;"></span>
+            5 Years Of Sun: Our Star’s Best Close-Ups
+            <span class="hr" style="width: 50%; height: 1px; background-color: rgba(80, 80, 80, 0.616); margin: 0 10px;"></span>
+          </h2>
+          <div class="video-containerss" style="display: flex; justify-content: center; align-items: center;">
+            <iframe width="960" height="515" src="https://www.youtube.com/embed/aSIDelAAHiA" frameborder="0" allowfullscreen></iframe>
+          </div>
+          
+          <p style="padding: 30px 200px 30px 200px; text-align: center; color: rgb(74, 74, 74);"><b>
+            "5 Years of Sun: Our Star's Best Close-Ups" is a collection of stunning and detailed images of the sun taken by NASA's Solar Dynamics Observatory (SDO) over the course of five years. The images showcase the intricate and dynamic nature of the sun, capturing its various features such as flares, prominences, and coronal loops in incredible detail. The SDO uses three instruments to capture different aspects of the sun's activity, collecting data every 0.75 seconds which allows for the creation of time-lapse videos of the sun's movements. These images not only provide scientists with valuable information about the sun's behavior but also offer a mesmerizing look at the beauty and power of our closest star.          </b></p>
+          <hr style="width: 70%;"><br>
+          
+        </div><br><br>
+          <div class="container" style=" box-sizing: border-box; padding: 0;">
+            <div class="section-heading">
+            <h2>Blog on <span>Medium</span></h2>
+            </div>
+            <div class="blog">
+            <div class="blog-entry">
+            <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Solar_eclipse_1999_4.jpg/462px-Solar_eclipse_1999_4.jpg" alt="Blog Image"></a>
+            <h3 style="color: rgb(255, 255, 152);">The Wonders of a Solar Eclipse</h3>
+            <p>A solar eclipse is a rare and awe-inspiring phenomenon that occurs when the moon passes between the sun and the Earth, blocking the sun's light and creating a stunning display in the sky. In this article, we explore the wonders of a solar eclipse and how you can witness this incredible event for yourself.</p>
+            <div class="meta">
+            <span>May 14, 2023</span>
+            <a href="#">3 Comments</a>
+            </div>
+            </div>
+            <div class="blog-entry">
+            <a href="#"><img src="https://th.bing.com/th/id/R.74b2d5bd51b1044f00c751f37c833d17?rik=yrOQhoqlDli%2B6A&riu=http%3A%2F%2Fwww.skyandtelescope.com%2Fwp-content%2Fuploads%2FTotality_98_Numazawa_l-1.jpg&ehk=UIOYf0BjaI1Mun1KkdOu%2Bj0ERajneI7mqHyGUUyMEtI%3D&risl=&pid=ImgRaw&r=0" alt="Blog Image"></a>
+            <h3 style="color: rgb(255, 255, 152);">The Fascinating Science of an Eclipse</h3>
+            <p>An eclipse is not only a breathtaking sight but also a fascinating scientific phenomenon that has puzzled astronomers for centuries. In this article, we delve into the science behind an eclipse and uncover some of its mysteries.</p>
+            <div class="meta">
+            <span>May 10, 2023</span>
+            <a href="#">5 Comments</a>
+            </div>
+            </div>
+            <div class="blog-entry">
+            <a href="#"><img src="https://th.bing.com/th/id/OIP.N3vEUMXcNOHWqikRVrW5yQHaGP?pid=ImgDet&w=400&h=337&rs=1" alt="Blog Image"></a>
+            <h3 style="color: rgb(255, 255, 152);">How to Safely View a Solar Eclipse</h3>
+            <p>A solar eclipse is a remarkable sight to behold, but it's important to take precautions to protect your eyes and your equipment. In this article, we share some tips on how to safely view a solar eclipse and make the most of this unforgettable experience.</p>
+            <div class="meta">
+            <span>May 7, 2023</span>
+            <a href="#">2 Comments</a>
+            </div>
+            </div>
+            </div>
+            </div>
+          <br>
+          <div class="btn" type="button" onclick="nextSlide()" style="width: 15%; height: 25px;"><i>Next </i></div></div>
+        </div>
+        <div id="moon" class="slide" style="display: none;">
+          <div>
+            <div style="display: flex; height: 105vh;">
+              <div style="flex: 1;">
+                <div style="background-color: rgba(0, 0, 0, 0.482); padding: 20px; height: auto;">
+                  <h1 style="color: white; font-size: 106px; text-align: left; margin-top: 20vh; padding-left: 70px; margin-bottom: 20px;">Moon</h1>
+                  <p style="color: white; text-align: left; padding-left: 70px;">The Moon is Earth's only natural satellite. It orbits around the Earth and is thought to have formed billions of years ago...</p>
+                  <p style="color: white; text-align: left; padding-left: 70px;">The Moon's gravitational pull affects the tides on Earth and has been a subject of fascination and exploration throughout history...</p>
+          
+                  <table style="margin: 0 auto; border-collapse: collapse; margin-top: 15vh; width: 100%; margin-left: 60px;">
+                    <tr style="color: rgb(213, 82, 0); border-bottom: none; font-size: 20px;">
+                      <th style="background-color: #000; text-align: center; border-bottom: none; width: 25%;">Distance From Earth</th>
+                      <th style="background-color: #000; text-align: center; border-bottom: none; width: 25%;">Humman Visitors</th>
+                      <th style="background-color: #000; text-align: center; border-bottom: none; width: 25%;">Moon Walkers</th>
+                      <th style="background-color: #000; text-align: center; border-bottom: none; width: 35%;">Robotic Visits</th>
+                    </tr>
+                    <tr style="font-size: 20px;">
+                      <td style="text-align: center;border-bottom: none;">364,252 KM</td>
+                      <td style="text-align: center;border-bottom: none;">24</td>
+                      <td style="text-align: center;border-bottom: none;">12</td>
+                      <td style="text-align: center;border-bottom: none;">100+</td>
+                    </tr>
+                  </table>
+                  
+                  
+                </div>
+              </div>
+              <div style="background-image: url('https://th.bing.com/th/id/R.9a5611525608c7bd1b8e2f2845d9c381?rik=iezHOoZj2spNcA&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fpng-moon--2000.png&ehk=Hg5c6HCeq0Yj40wF6higVE9BxI3EkJkM5dWkr6Z2I2M%3d&risl=&pid=ImgRaw&r=0'); background-size: contain; background-repeat: no-repeat; background-position: center; padding: 20px; flex: 0.85;"></div>           </div>
+          </div>
+          <div>
+          <div class="containerss" style=" min-width: 100%; min-height: 100%; margin: 0; padding-top: 40px; background-color: rgba(254, 254, 254, 0.781); text-align: left;">
+            <p style="display: inline-block; border-bottom: solid #3f1e1ed2;margin-left: 100px; font-size: 50px; color: rgb(55, 25, 25);"><b>Related News</b></p><hr>
+          <div class="grid_layout" style=" padding-bottom: 20px;">
+            <div class="features_teaser">
+              <div class="image_and_description_containerss">
+                <a href="/moon-in-motion/tidal-locking/">
+                  <img alt="Tidal Locking" class="img-lazy" src="https://moon.nasa.gov/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdXdKIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--22d736e515a1e26c086e2b3e2c34d765fd165e07/feature-tidal-locking.jpg?disposition=attachment">
+                </a>
+              </div>
+              <div class="content_title">
+                <a href="/moon-in-motion/tidal-locking/">Tidal Locking</a>
+              </div>
+              <div class="rollover_description">
+                Earth and the Moon are locked in an orbital dance, and gravity is the choreographer. Here's how it works.
+              </div>
+            </div>
+            <div class="features_teaser">
+              <div class="image_and_description_containerss">
+                <a href="/moon-in-motion/eclipses/">
+                  <img alt="Eclipses" class="img-lazy" src="https://moon.nasa.gov/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBc29KIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--8c88a103788a1e062ae9f02989866bad68480240/feature-eclipses.jpeg?disposition=attachment">
+                </a>
+              </div>
+              <div class="content_title">
+                <a href="/moon-in-motion/eclipses/">Eclipses</a>
+              </div>
+              <div class="rollover_description">
+                Between four and seven times a year, Earth, Moon and Sun line up just right to create the cosmic-scale shadow show known as an eclipse.
+              </div>
+            </div>
+            <div class="features_teaser">
+              <div class="image_and_description_containerss">
+                <a href="/moon-in-motion/moon-phases/">
+                  <img alt="Moon Phases" class="img-lazy" src="https://moon.nasa.gov/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBc2dKIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--cb8a3a0bbedbda841e308fad122db622593644ac/feature-phases.jpeg?disposition=attachment">
+                </a>
+              </div>
+              <div class="content_title">
+                <a href="/moon-in-motion/moon-phases/">Moon Phases</a>
+              </div>
+              <div class="rollover_description">
+                Like Earth, the Moon has a day side and a night side, which change as the Moon rotates.
+              </div>
+            </div>
+          </div></div><br><br>
+          <caption style="padding: 30px 30px; font-size: 35px; margin-bottom: 10px;">Timeline of formation and evolution of the Moon</caption>
+          <table class="wikitable" style="width: 80%; height: auto; margin: auto; border: rgb(255, 255, 255) solid 3px;">
+            <tr>
+              <th style="background-color: #fa8787;">Period</th>
+              <th style="background-color: #7add73;">Time since moon formation</th>
+              <th style="background-color: #cb648f;">Time from present (approx.)</th>
+              <th style="background-color: #b4c463;">Event</th>
+            </tr>
+            <tr>
+              <td>Lunar day</td>
+              <td>N/A</td>
+              <td>29.5 Earth days</td>
+              <td>One complete rotation on its axis</td>
+            </tr>
+            <tr>
+              <td>Lunar month</td>
+              <td>N/A</td>
+              <td>27.3 Earth days</td>
+              <td>One complete orbit around Earth</td>
+            </tr>
+            <tr>
+              <td>Lunar year</td>
+              <td>About 4.5 billion years ago</td>
+              <td>12.4 lunar months (or 354.4 Earth days)</td>
+              <td>One complete orbit of Earth around the Sun</td>
+            </tr>
+            <tr>
+              <td>Formation of Moon</td>
+              <td>About 4.5 billion years ago</td>
+              <td>N/A</td>
+              <td>Giant impact theory</td>
+            </tr>
+            <tr>
+              <td>Heavy bombardment period</td>
+              <td>4.0 to 3.8 billion years ago</td>
+              <td>N/A</td>
+              <td>Moon's surface heavily cratered by meteoroids</td>
+            </tr>
+            <tr>
+              <td>Basaltic volcanism</td>
+              <td>3.5 to 1 billion years ago</td>
+              <td>N/A</td>
+              <td>Formation of lunar maria</td>
+            </tr>
+            <tr>
+              <td>Lunar recession</td>
+              <td>N/A</td>
+              <td>Currently moving away from Earth at a rate of approximately 1.48 inches (3.78 cm) per year</td>
+              <td>Tidal forces causing gradual movement away from Earth; estimated to have started about 4.5 billion years ago</td>
+            </tr>
+            <tr>
+              <td>Recent geological activity</td>
+              <td>Some areas may still be geologically active</td>
+              <td>Evidence suggests some parts of the Moon may still be geologically active, including occasional moonquakes and volcanic eruptions</td>
+              <td>N/A</td>
+            </tr>
+          </table>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Return_of_the_moon_diagram.svg/1920px-Return_of_the_moon_diagram.svg.png" alt="The Sun" style="width: 1000px;">
+          <br>
+          <div style=" background-color: rgba(254, 254, 254, 0.781);">
+            <h2 class="title" style="display: flex; align-items: center;padding-top: 30px; justify-content: center; text-align: center; margin-bottom: 30px;color: #3f1e1ed2;">
+              <span class="hr" style="width: 50%; height: 1px; background-color: black; margin: 0 10px;"></span>
+              Apollo 13 Views of the Moon in 4K
+              <span class="hr" style="width: 50%; height: 1px; background-color: black; margin: 0 10px;"></span>
+            </h2>
+            <div class="video-containerss" style="display: flex; justify-content: center; align-items: center;">
+              <iframe width="960" height="515" src="https://www.youtube.com/embed/Ilifg26TZrI" frameborder="0" allowfullscreen></iframe>
+            </div>
+            
+            <p style="padding: 30px 200px 30px 200px; text-align: center; color: rgb(74, 74, 74);"><b>
+              This video uses data gathered from the Lunar Reconnaissance Orbiter spacecraft to recreate some of the stunning views of the Moon that the Apollo 13 astronauts saw on their perilous journey around the farside in 1970. These visualizations, in 4K resolution, depict many different views of the lunar surface, starting with earthset and sunrise and concluding with the time Apollo 13 reestablished radio contact with Mission Control. Also depicted is the path of the free return trajectory around the Moon, and a continuous view of the Moon throughout that path. All views have been sped up for timing purposes — they are not shown in "real-time."
+            </b></p>
+            <hr style="width: 70%;"><br>
+            
+          </div><br><br></div>
+          <div class="cardd-container">
+            <div class="cardd">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Moons_of_solar_system_v7.jpg/495px-Moons_of_solar_system_v7.jpg" alt="Size and mass">
+              <div class="container">
+                <h4 style="padding-top: 5px;"><b>Size and Mass</b></h4>
+                <p>The Moon has a diameter of 3,474 km and a mass of 7.342×10²²kg, mass is 1/81 of Earth's, being the second densest among the planetary moons, and having the second highest surface gravity.</p>
+                <a href="https://en.wikipedia.org/wiki/Moon#Size_and_mass">Learn more</a>
+              </div>
+            </div>
+          
+            <div class="cardd">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Youtubeastronautsonmoonot3.gif" alt="Gravitational field">
+              <div class="container">
+                <h4 style="padding-top: 4px;"><b>Gravitational Field</b></h4>
+                <p style="padding-top: 5px;">The Moon's gravitational field is about one-sixth of Earth's. The details of the gravitational field have been measured through tracking the Doppler shift of radio signals emitted by orbiting spacecraft.</p>
+                <a href="https://en.wikipedia.org/wiki/Moon#Gravitational_field">Learn more</a>
+              </div>
+            </div>
+          
+            <div class="cardd">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Apollo_17_twilight_ray_sketch.jpg/330px-Apollo_17_twilight_ray_sketch.jpg" alt="Atmosphere">
+              <div class="container">
+                <h4><b>Atmosphere</b></h4>
+                <p style="padding-top: 22px;">The Moon has almost no atmosphere, with a surface pressure of less than 10−¹² bar.</p>
+                <a href="https://en.wikipedia.org/wiki/Moon#Atmosphere">Learn more</a>
+              </div>
+            </div>
+          
+            <div class="cardd">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Moon_names.svg/450px-Moon_names.svg.png" alt="Volcanic features">
+              <div class="container">
+                <h4><b>Volcanic Features</b></h4>
+                <p style="padding-top: 25px;">The Moon has many volcanic features and it also has extensive basaltic maria covering 31 percent of its near side with ancient lava pools, and evidence of recent volcanic activity on both sides.</p>
+                <a href="https://en.wikipedia.org/wiki/Moon#Volcanic_features">Learn more</a>
+              </div>
+            </div>
+          
+            <div class="cardd">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Reiner-gamma-clem1.jpg/330px-Reiner-gamma-clem1.jpg" alt="Lunar swirls">
+              <div class="container">
+                <h4 style="padding-top: 30px;"><b>Lunar Swirls</b></h4>
+                <p style="padding-top: 25px;">Lunar swirls are bright, sinuous features on the Moon's surface with high albedo and immature optical characteristics. They are believed to be shielded from solar wind.</p>
+                <a href="https://en.wikipedia.org/wiki/Moon#Lunar_swirls">Learn more</a>
+              </div>
+            </div>
+            
+          </div><br>
+          <div class="btn" type="button" onclick="prevSlide()" style="width: 15%; height: 25px;">
+          <i>Previous</i>
+          </div>
+          
+    </section>
+    
+
+<section id="mercury">
+
+  <div style="display: flex; height: 100vh; padding-top: 20px;">
+    <div style="flex: 1;">
+      <div style="background-color: rgba(0, 0, 0, 0.482); padding: 20px; height: auto;">
+        <h1 style="color: white; font-size: 106px; text-align: left; margin-top: 20vh; padding-left: 70px; margin-bottom: 20px;">Mercury</h1>
+        <p style="color: white; text-align: left; padding-left: 70px; padding-bottom: 10px">Mercury is the closest planet to the Sun and is the smallest planet in our solar system. It is named after the Roman messenger god due to its fast orbit around the Sun...</p>
+        <p style="color: white; text-align: left; padding-left: 70px;">Mercury's surface is heavily cratered, similar to the Moon's surface. It has expansive plains, rugged mountains, and cliffs called scarps...</p>
+        
+        <table style="margin: 0 auto; border-collapse: collapse; margin-top: 10vh; width: 100%; margin-left: 30px;">
+          <tr style="color: rgb(213, 82, 0); border-bottom: none; font-size: 20px;">
+            <th style="background-color: #000; text-align: center; border-bottom: none; width: 35%;">Distance From Sun</th>
+            <th style="background-color: #000; text-align: center; border-bottom: none; width: 35%;">Length Of Year</th>
+            <th style="background-color: #000; text-align: center; border-bottom: none; width: 35%;">Planet Type</th>
+          </tr>
+          <tr style="font-size: 20px;">
+            <td style="text-align: center;border-bottom: none;">56,530,898 KM</td>
+            <td style="text-align: center;border-bottom: none;">88 Earth Days</td>
+            <td style="text-align: center;border-bottom: none;">Terrestrial</td>
+          </tr>
+        </table>
+        
+        
+      </div>
+    </div>
+    <div style="background-image: url('https://th.bing.com/th/id/R.b6f71afb0d0584edda7a774fd26edc7a?rik=Gsb6YJYXrNkFvg&pid=ImgRaw&r=0'); background-size: contain; background-repeat: no-repeat; background-position: center; padding: 20px; flex: 0.85; margin-top: 20px;"></div>           </div>
+  </div>
+      <br>
+    <div class="sectionMercury" style="font-size: 1rem; font-weight: 400; line-height: 1.7; background-color: rgba(255, 255, 255, 0.942); color: rgb(57, 57, 57); padding-top: 60px; padding-bottom: 50px;">
+      <div class="containerMercury">
+      <div class="rowMercury">
+      <div class="colMercury-lg-5 mrMercury-auto mbMercury-5">
+      <span class="d-blockMercury textMercury-uppercase textMercury-secondary" style="font-size: 25px;">Urgent: Mercury</span>
+      <span class="divider myMercury-4"></span>
+      <h3 class="mbMercury-4 sectionMercury-title" style="font-size: 25px;" >Mercury Is A Planet With <strong>Extreme Temperature Variations</strong></h3>
+      <p>The surface of the planet can reach up to 800 degrees Fahrenheit during the day and drop to -290 degrees Fahrenheit at night. Additionally, Mercury has a very thin atmosphere that leaves it vulnerable to solar winds and radiation from the sun</p>
+      <p class="mbMercury-5">Understanding Mercury's conditions is crucial for future missions and for learning more about our solar system.</p>
+      <p><a href="#" class="btnMercury btnMercury-outline-black">Learn More</a></p>
+      </div>
+      <div class="colMercury-lg-6">
+      <figure class="imgMercury-dotted-bg">
+      <img src="https://cdn.pixabay.com/photo/2012/01/09/09/34/mercury-11592_960_720.png" alt="Image" class="imgMercury-fluid">
+      </figure>
+      </div>
+      </div>
+      </div>
+
+      </div><br>
+      <div class="container" style=" box-sizing: border-box; padding: 0; ">
+        <div class="section-heading">
+        <h2>Urgent with <span>Mercury</span></h2>
+        </div>
+        <div class="blog">
+        <div class="blog-entry">
+        <a href="#"><img src="https://images.indianexpress.com/2017/09/messenger45-mercury-copy.jpg?w=759" alt="Blog Image"></a>
+        <h3 style="color: rgb(255, 255, 152);">Extreme Temperatures</h3>
+        <p>Mercury is the closest planet to the sun and has extreme temperature variations. The surface temperature can reach up to 800 degrees Fahrenheit during the day and drop to -290 degrees Fahrenheit at night.</p>
+        <div class="meta"><br>
+        <span>Jun 2, 2023</span>
+        <a href="#">11 Comments</a>
+        </div>
+        </div>
+        <div class="blog-entry">
+        <a href="#"><img src="https://assets.teenvogue.com/photos/572a82c38dadd15d1189104d/1:1/w_354%2Cc_limit/mercury-retrograde.jpg" alt="Blog Image"></a>
+        <h3 style="color: rgb(255, 255, 152);">Unexplored Areas</h3>
+        <p>Despite being visited by several spacecraft, there are still many unexplored areas on Mercury. Further exploration could provide valuable insights into the planet's geology and history.</p>
+        <div class="meta"><br>
+        <span>May 13, 2023</span>
+        <a href="#">3 Comments</a>
+        </div>
+        </div>
+        <div class="blog-entry">
+        <a href="#"><img src="https://sluggerotoole.com/wp-content/uploads/2016/05/MercuryTransit2016_SDO.jpg" alt="Blog Image"></a>
+        <h3 style="color: rgb(255, 255, 152);">Impact Craters</h3>
+        <p>Mercury is covered with impact craters, indicating that the planet has been subjected to collisions with asteroids and comets. Understanding the frequency and nature of these impacts is important for assessing the potential threat of near-Earth objects to our planet.</p>
+        <div class="meta">
+        <span>Jun 1, 2023</span>
+        <a href="#">21 Comments</a>
+        </div>
+        </div>
+        </div>
+        </div>
+
+
+
+        <div class="container" style=" box-sizing: border-box; padding: 0; ">
+          <div class="blog">
+          <div class="blog-entry">
+          <a href="#"><img src="https://qph.fs.quoracdn.net/main-qimg-5e2dbe79e50b0254dfa6d150cb63b842-c" alt="Blog Image"></a>
+          <h3 style="color: rgb(255, 255, 152);">Orbit and Rotation</h3>
+          <p>Mercury has a unique orbit and rotation that presents several challenges for exploration and study. The planet has the most eccentric orbit of any planet in our solar system, which means it moves much closer to the Sun at some points in its orbit than at others.</p>
+          <div class="meta"><br>
+          <span>Jun 2, 2023</span>
+          <a href="#">11 Comments</a>
+          </div>
+          </div>
+          <div class="blog-entry">
+          <a href="#"><img src="https://th.bing.com/th/id/R.fb52b1bec39a1fd91a36b88b5da5386c?rik=Vb45Z9r6MuejSg&pid=ImgRaw&r=0" alt="Blog Image"></a>
+          <h3 style="color: rgb(255, 255, 152);">Lack of Atmosphere</h3>
+          <p>Mercury has a very thin atmosphere, which makes it vulnerable to solar winds and radiation from the sun. This can have harmful effects on any potential future missions to explore the planet.</p>
+          <div class="meta"><br><br>
+          <span>May 13, 2023</span>
+          <a href="#">3 Comments</a>
+          </div>
+          </div>
+          <div class="blog-entry">
+          <a href="#"><img src="https://th.bing.com/th/id/OIP.2SwpVtUcd6T9JdVB5TzelAHaEK?pid=ImgDet&rs=1" alt="Blog Image"></a>
+          <h3 style="color: rgb(255, 255, 152);">Magnetic Field</h3>
+          <p>Mercury has a weak magnetic field, which is unusual for a planet its size. Scientists are still trying to understand why this is the case and how it affects the planet's geology and atmosphere.</p>
+          <div class="meta"><br><br>
+          <span>Jun 1, 2023</span>
+          <a href="#">21 Comments</a>
+          </div>
+          </div>
+          </div>
+          </div>
+  </section>
+   
+
+<section id="venus">
+  <div style="display: flex; height: 100vh;">
+    <div style="flex: 1;">
+      <div style="background-color: rgba(0, 0, 0, 0.482); padding: 20px; height: auto;">
+        <h1 style="color: white; font-size: 106px; text-align: left; margin-top: 20vh; padding-left: 70px; margin-bottom: 20px;">Venus</h1>
+        <p style="color: white; text-align: left; padding-left: 70px; padding-bottom: 10px">Venus is the second planet from the Sun and is similar in size to Earth. It is named after the Roman goddess of love and beauty...</p>
+        <p style="color: white; text-align: left; padding-left: 70px;">Venus's surface is covered in thick clouds and has a hot and hostile environment. It has volcanic features, including large shield volcanoes and extensive lava flows...</p>
+  
+        <table style="margin: 0 auto; border-collapse: collapse; margin-top: 10vh; width: 100%; margin-left: 30px;">
+          <tr style="color: rgb(213, 82, 0); border-bottom: none; font-size: 20px;">
+            <th style="background-color: #000; text-align: center; border-bottom: none; width: 35%;">Distance From Sun</th>
+            <th style="background-color: #000; text-align: center; border-bottom: none; width: 35%;">Length Of Year</th>
+            <th style="background-color: #000; text-align: center; border-bottom: none; width: 35%;">Planet Type</th>
+          </tr>
+          <tr style="font-size: 20px;">
+            <td style="text-align: center;border-bottom: none;">108,163,240 KM</td>
+            <td style="text-align: center;border-bottom: none;">225 Earth Days</td>
+            <td style="text-align: center;border-bottom: none;">Terrestrial</td>
+          </tr>
+        </table>
+        
+        
+      </div>
+    </div>
+    <div style="background-image: url('https://clipground.com/images/venus-png-4.png'); background-size: 90%; background-repeat: no-repeat; background-position: center; padding: 20px; flex: 0.85; margin-top: 20px;"></div>
+  </div>
+      <br>
+    <div style="background-color: white; color: black;">
+      <div style="display:flex; align-items:center; padding-left: 100px;">
+        <div class="spinner" style="margin-right: 30px;">
+          <div class="spinner1"></div>
+        </div>
+        <h2 style="font-size: 30px; text-transform: uppercase; font-weight: 1200; padding-top: 50px; border-bottom: solid black; width: 24%;">
+          <strong style="font-weight: 400;">The beautiful scenes </strong><i>on this planet Venus</i>
+        </h2>
+      </div>
+      
+      <br>
+      <div class="gallery-container">
+        <div class="gallery">
+          <div class="row row1">
+            <div class="col col1"><img src="https://cdn.images.express.co.uk/img/dynamic/151/590x/secondary/Venus-terrain-An-artist-s-impression-of-what-Venus-may-look-like-from-the-ground-2719002.jpg?r=1603051026212" alt=""></div>
+            <div class="col col2"><img src="https://th.bing.com/th/id/R.901a16b651c165ad09817698989c8483?rik=gNFqfJlpAtqYPQ&pid=ImgRaw&r=0" alt=""></div>
+            <div class="col col4"><img src="https://th.bing.com/th/id/OIP.aK1A1WA0UyjJ_kBO9bq5sgHaE8?pid=ImgDet&w=1000&h=667&rs=1" alt=""></div>
+          </div>
+          <div class="row row2">
+            <div class="col col1"><img src="https://ichef.bbci.co.uk/images/ic/1200xn/p08qv0tq.jpg" alt="" style="width: 100%;"></div>
+            <div class="col col2"><img src="https://th.bing.com/th/id/R.019e6a6e3eb59f627ca28fbadeb603cb?rik=22n34RX9u%2fVm4Q&pid=ImgRaw&r=0" alt="" style="width: 100%;"></div>
+          </div>
+          <div class="row row3">
+            <div class="col col1"><img src="https://th.bing.com/th/id/R.b44a01de972f837c5518d300601468ee?rik=aXzp72hCx4VT%2fg&riu=http%3a%2f%2fwww.zastavki.com%2fpictures%2f640x480%2f2014%2fMotocycles_The_planet_is_near_the_sun_088138_29.jpg&ehk=yVuHz2Gw72Wc3ob7L4YVGvqVAigRe8obtbSkxJapy7c%3d&risl=&pid=ImgRaw&r=0" alt=""></div>
+            <div class="col col2"><img src="https://th.bing.com/th/id/OIP.w0PXmneyU3svNRJ_d9HrUgHaEo?pid=ImgDet&w=1920&h=1200&rs=1" alt=""></div>
+            <div class="col col4"><img src="https://th.bing.com/th/id/OIP.6Eimyq7rOaXtN6RDp0AnSwEgDY?pid=ImgDet&w=1600&h=1200&rs=1" alt=""></div>
+            <div class="col col5"><img src="https://i.pinimg.com/originals/cc/ca/4c/ccca4c41e8aa2d0aeb5f3f6833226955.jpg" alt=""></div>
+            <div class="col col3"><img src="https://orig10.deviantart.net/c008/f/2017/019/8/2/exploding__kleinian__stars_by_marijeberting-davyiee.jpg" alt=""></div>
+          </div>
+          <div class="row row4">
+            <div class="col col1"><img src="https://th.bing.com/th/id/R.8eb7d4b64c5d80d0a8cc313b885b289e?rik=T%2bkLTYjs5DO5Cg&pid=ImgRaw&r=0" alt=""></div>
+            <div class="col col2"><img src="https://th.bing.com/th/id/R.1a8b9e21ea3a70ba4a0352e85fcc75de?rik=Kb9252KD39Vi8g&pid=ImgRaw&r=0" alt=""></div>
+            <div class="col col3"><img src="https://th.bing.com/th/id/R.d74cfbfb93ee7cb1b48b7dd9ca06c9ed?rik=sSkFRESwdGKgHg&pid=ImgRaw&r=0" alt=""></div>
+          </div>
+        </div>
+      </div>
+    </div><br>
+    <div class="containerVenus">
+      <div class="rowVenus">
+      <div class="colVenus-lg-5 mrVenus-auto mbVenus-5">
+      <span class="d-blockVenus textVenus-uppercase textVenus-secondary" style="font-size: 25px;">Urgent: Venus</span>
+      <span class="divider myVenus-4"></span>
+      <h3 class="mbVenus-4 sectionVenus-title" style="font-size: 25px;" >Venus is a scorching hot inner planet <strong>In The Solar System</strong></h3>
+      <p>Currently, there are no special warnings about the planet Venus from international scientific organizations. However, Venus is one of the most difficult planets for life in the solar system, with an extremely high surface temperature and a unique atmosphere consisting of carbon dioxide gas.</p>
+      <p class="mbVenus-5">Recent research has shown that the phenomenon of methane gas accumulation on Venus has also been discovered, but scientists still need to study more to determine the origin of this methane gas.</p>
+      <p><a href="#" class="btnVenus btnVenus-outline-black">Learn More</a></p>
+      </div>
+      <div class="colVenus-lg-6">
+      <figure class="imgVenus-dotted-bg">
+      <img src="https://wallpaperaccess.com/full/1771174.jpg" alt="Image" class="imgVenus-fluid">
+      </figure>
+      </div>
+      </div>
+      </div>
+
+      </div>
+      <div class="gallery-container">
+        <div class="gallery">
+      <div class="row row4">
+        <div class="col col1"><img src="https://th.bing.com/th/id/OIP.IxbnwJXjfv1gXIHMoudN2gHaHa?pid=ImgDet&w=2560&h=2560&rs=1" alt=""></div>
+        <div class="col col2"><img src="https://vietxuangas.com.vn/wp-content/uploads/2017/07/khi-metan-hydrate.jpg" alt=""></div>
+        <div class="col col3"><img src="https://th.bing.com/th/id/OIP.gAnNdEWQ1qxh2wXF__TA_AHaFU?pid=ImgDet&rs=1" alt=""></div>
+        <div class="col col3"><img src="https://jothishi.com/wp-content/uploads/2019/03/mars-1.jpg" alt=""></div>
+      </div>
+        </div></div><br><br>
+    </section>
+
+<section id="earth">
+  <div style="display: flex; height: 100vh;">
+    <div style="flex: 1;">
+      <div style="background-color: rgba(0, 0, 0, 0.482); padding: 20px; height: auto;">
+        <h1 style="color: white; font-size: 106px; text-align: left; margin-top: 20vh; padding-left: 70px; margin-bottom: 20px;">Earth</h1>
+        <p style="color: white; text-align: left; padding-left: 70px; padding-bottom: 10px">Earth is the third planet from the Sun and is the largest terrestrial planet in our solar system. It is home to a diverse range of life forms and is the only known celestial body to support life...</p>
+        <p style="color: white; text-align: left; padding-left: 70px;">Earth's surface is mostly covered by water, with continents and islands scattered across its surface. It has a dynamic geology, with mountains, valleys, plains, and a variety of ecosystems...</p>
+        
+        <table style="margin: 0 auto; border-collapse: collapse; margin-top: 10vh; width: 100%; margin-left: 30px;">
+          <tr style="color: rgb(213, 82, 0); border-bottom: none; font-size: 20px;">
+            <th style="background-color: #000; text-align: center; border-bottom: none; width: 35%;">Distance From Sun</th>
+            <th style="background-color: #000; text-align: center; border-bottom: none; width: 35%;">Length Of Year</th>
+            <th style="background-color: #000; text-align: center; border-bottom: none; width: 35%;">Planet Type</th>
+          </tr>
+          <tr style="font-size: 20px;">
+            <td style="text-align: center;border-bottom: none;">151,867,570 KM</td>
+            <td style="text-align: center;border-bottom: none;">365 Earth Days</td>
+            <td style="text-align: center;border-bottom: none;">Terrestrial</td>
+          </tr>
+        </table>
+        
+        
+      </div>
+    </div>
+    <div style="background-image: url('https://th.bing.com/th/id/R.ddf4fb1ba4210ae723284facd27ff05a?rik=FGhcphazIMbbFg&riu=http%3a%2f%2fpurepng.com%2fpublic%2fuploads%2flarge%2fpurepng.com-earthearthplanetglobethird-planet-from-the-sun-1411526988004rc27u.png&ehk=mMKnNOMaOxHlmH6%2bsKT3M1zssp1SJ3m0YleZyAKYfD4%3d&risl=1&pid=ImgRaw&r=0'); background-size: 90%; background-repeat: no-repeat; background-position: center; padding: 20px; flex: 0.85; margin-top: 20px;"></div>           </div>
+  </div>
+    <hr>
+    <div class="bannerearth">
+    <div class="loader-container">
+    <div class="loader">
+      <div id="first">
+          <div id="second">
+              <div id="third">
+              </div>
+          </div>
+      </div>
+  </div>  </div> 
+  <div class="content">
+  <div style="font-size: 20px; color: rgb(255, 118, 118);">A PLACE FOR THE EARTH</div>
+  <h2 style="font-size: 40px;">What have humans been doing to the Earth? Will the Earth "Explode"?</h2>
+</div></div> <hr>
+    <div class="sectionEarth" style="font-size: 1rem; font-weight: 400; line-height: 1.7; background-color: #fff; color: rgb(57, 57, 57);">
+      <div class="containerEarth">
+      <div class="rowEarth">
+        <div class="colEarth-lg-6">
+          <figure class="imgEarth-dotted-bg">
+          <img src="https://cdn.pixabay.com/photo/2020/05/26/20/38/climate-change-5224748_960_720.jpg" alt="Image" class="imgEarth-fluid">
+          </figure>
+          </div>
+      <div class="colEarth-lg-5 mrEarth-auto mbEarth-5">
+      <h3 class="mbEarth-4 sectionEarth-title" style="font-size: 25px;" ><strong>Global Warming</strong> In The Earth!</h3>
+      <p>Global warming is the gradual increase in the Earth's average surface temperature due to human activities that release greenhouse gases into the atmosphere. This can lead to melting ice caps, rising sea levels, more severe weather events, and shifts in plant and animal habitats. </p>
+      <p class="mbEarth-5">The global average temperature has already risen by about 1 degree Celsius since pre-industrial times, with continuing consequences for ecosystems and humans if action is not taken to reduce greenhouse gas emissions.
+      </p>
+      <p><a href="#" class="btnEarth btnEarth-outline-black">Learn More</a></p>
+      </div>
+      </div>
+      </div><hr style="width: 20%; float: left; margin: 0; margin-left: 100px; height: 3px; background-color: rgb(124, 124, 124);"><br>
+      <div class="services" style="background-color: white;">
+        <h2 style="color: rgb(107, 0, 0);"><i>Rescue "Earth About to Explode"</i></h2>
+        <p>Services related to reducing carbon emissions and responding to climate change</p>
+      
+        <div class="service-row" style="display: flex; align-items: center; padding-right: 20%;">
+          <div class="service-item" style="display:flex; align-items:center; padding-top: 90px;">
+            <img src="https://t4.ftcdn.net/jpg/05/83/17/99/240_F_583179964_1rk2BMJCQ8dAQFPg1v52IEqNi7wghn5h.jpg" alt="Green Energy Icon" class="service-icon" style="width: 200px; height: 200px; margin-right: 20px; padding-bottom: 50px;">
+            <div>
+              <h3 style="padding-left: 20px;">Green Energy Solutions</h3>
+              <ul class="triangle-list">
+                <li>Solar Energy Systems</li>
+                <li>Wind Power Generation</li>
+                <li>Geothermal Heating and Cooling</li>
+                <li>Energy Efficient Lighting</li>
+                <li>Sustainable Building Design</li>
+              </ul>                
+            </div>
+          </div>
+      
+          <div class="service-item" style="display:flex; align-items:center; padding-top: 30px;">
+            <img src="https://cdn-icons-png.flaticon.com/128/10214/10214861.png" alt="Recycling Icon" class="service-icon" style="width: 200px; height: 200px; margin-right: 20px; padding-top: 10px;">
+            <div>
+              <h3 style="padding-left: 20px;">Waste Reduction Services</h3>
+              <ul class="triangle-list">
+                <li>Recycling and Composting Programs</li>
+                <li>Waste Audits and Analysis</li>
+                <li>Landfill Diversion Strategies</li>
+                <li>Product Lifecycle Assessments</li>
+              </ul> 
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="services">
+        <div class="service-row" style="display: flex; align-items: center; padding-right: 20%;">
+          <div class="service-item" style="display:flex; align-items:center; padding-top: 30px;">
+            <img src="https://cdn-icons-png.flaticon.com/128/4850/4850835.png" alt="Carbon Footprint Icon" class="service-icon" style="width: 200px; height: 200px; margin-right: 20px; padding-top: 10px;">
+            <div>
+              <h3 style="padding-left: 20px;">Carbon Footprint Reduction</h3>
+              <ul class="triangle-list">
+                <li>Green Transportation Options</li>
+                <li>Energy-Efficient Appliances and HVAC systems</li>
+                <li>Sustainable Agriculture Practices</li>
+                <li>Low Impact Manufacturing Processes</li>
+              </ul> 
+            </div>
+          </div>
+      
+          <div class="service-item" style="display:flex; align-items:center; padding-top: 30px;">
+            <img src="https://cdn-icons-png.flaticon.com/128/10197/10197784.png" alt="Coral Reef Icon" class="service-icon" style="width: 200px; height: 200px; margin-right: 20px; padding-top: 10px;">
+            <div>
+              <h3 style="padding-left: 20px;">Biodiversity Conservation</h3>
+              <ul class="triangle-list">
+                <li>Rainforest Protection and Reforestation</li>
+                <li>Marine Conservation Initiatives</li>
+                <li>Endangered Species Habitat Restoration</li>
+                <li>Eco-Tourism and Sustainable Recreation</li>
+              </ul> 
+            </div>
+          </div>
+        </div>
+      </div>
+            
+      </div>
+      <br><br>
+      <div class="container" style=" box-sizing: border-box; padding: 0;">
+        <div class="section-heading">
+        <h2>News about <span>Earth</span></h2>
+        </div>
+        <div class="blog">
+          <div class="blog-entry">
+            <a href="#"><img src="https://th.bing.com/th/id/R.c78138e19cc427b86a27ade2ad361f21?rik=Hm5UeOWORclXyg&pid=ImgRaw&r=0" alt="Blog Image"></a>
+            <h3 style="color: rgb(255, 255, 152);">The Impact of Global Warming on Wildlife</h3>
+            <p>The effects of global warming are being felt around the world, and wildlife is no exception. From melting ice caps to changing migration patterns, in this article we discuss some of the ways that global warming is affecting wildlife populations and what can be done to mitigate these impacts.</p>
+            <div class="meta">
+            <span>June 1, 2023</span>
+            <a href="#">4 Comments</a>
+            </div>
+            </div>
+            <div class="blog-entry">
+            <a href="#"><img src="https://th.bing.com/th/id/OIP.xTjrjdxFrV_-w6rR1ZH8DwHaGd?pid=ImgDet&w=1500&h=1310&rs=1" alt="Blog Image"></a>
+            <h3 style="color: rgb(255, 255, 152);">The Role of Human Activity in Climate Change</h3>
+            <p>The evidence is clear: human activity is contributing to the rapid pace of global warming. In this article, we explore the different ways that human activities such as burning fossil fuels, deforestation, and agriculture are exacerbating climate change and what we can do to reduce our impact.</p>
+            <div class="meta">
+            <span>May 27, 2023</span>
+            <a href="#">6 Comments</a>
+            </div>
+            </div>
+            <div class="blog-entry">
+            <a href="#"><img src="https://th.bing.com/th/id/R.dcb24f52fdfd0daa2e9c4e34645400d8?rik=WRSJ09p9PJGIBA&pid=ImgRaw&r=0" alt="Blog Image"></a>
+            <h3 style="color: rgb(255, 255, 152);">The Consequences of Ignoring Global Warming</h3>
+            <p>The consequences of global warming are dire and far-reaching, yet many continue to deny its existence or downplay its impact. In this article, we examine the potential consequences of ignoring global warming and the urgent need for action to mitigate its effects.</p>
+            <div class="meta"><br>
+            <span>May 20, 2023</span>
+            <a href="#">3 Comments</a>
+            </div>
+            </div>
+        </div>
+        </div>
+        </div><br><br>
+  </section>
+
+<section id="mars">
+  <div style="display: flex; height: 100vh;">
+    <div style="flex: 1;">
+      <div style="background-color: rgba(0, 0, 0, 0.482); padding: 20px; height: auto;">
+        <h1 style="color: white; font-size: 106px; text-align: left; margin-top: 20vh; padding-left: 70px; margin-bottom: 20px;">Mars</h1>
+        <p style="color: white; text-align: left; padding-left: 70px; padding-bottom: 10px">Mars is the fourth planet from the Sun and is often called the "Red Planet" due to its reddish appearance. It is a terrestrial planet with a thin atmosphere...</p>
+        <p style="color: white; text-align: left; padding-left: 70px;">Mars's surface is rocky and desert-like, with vast plains, impact craters, and towering volcanoes. It has the largest volcano in the solar system, Olympus Mons, and a grand canyon-like feature called Valles Marineris...</p>
+              
+        <table style="margin: 0 auto; border-collapse: collapse; margin-top: 10vh; width: 100%; margin-left: 30px;">
+          <tr style="color: rgb(213, 82, 0); border-bottom: none; font-size: 20px;">
+            <th style="background-color: #000; text-align: center; border-bottom: none; width: 35%;">Distance From Sun</th>
+            <th style="background-color: #000; text-align: center; border-bottom: none; width: 35%;">Length Of Year</th>
+            <th style="background-color: #000; text-align: center; border-bottom: none; width: 35%;">Planet Type</th>
+          </tr>
+          <tr style="font-size: 20px;">
+            <td style="text-align: center;border-bottom: none;">249,139,525 KM</td>
+            <td style="text-align: center;border-bottom: none;">687 Earth Days</td>
+            <td style="text-align: center;border-bottom: none;">Terrestrial</td>
+          </tr>
+        </table>
+        
+        
+      </div>
+    </div>
+    <div style="background-image: url('https://www.picng.com/upload/mars_planet/png_mars_planet_6494.png'); background-size: 90%; background-repeat: no-repeat; background-position: center; padding: 20px; flex: 0.85; margin-top: 20px;"></div>           </div>
+  </div>
+    <div style="padding-top: 100px; padding-bottom: 100px; margin-top: 50px;">
+      <div style=" color: black; background-color: white; padding-left: 100px; padding-top: 40px; padding-bottom: 20px;">
+        <div class="honeycomb" style="display: inline-block; vertical-align: middle; margin-right: 20px;">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <h2 style="text-transform: uppercase; margin-left: 50px; padding-top: 30px; font-size: 40px;display: inline-block; background-color: #fff; vertical-align: middle;">Is Mars a place for humans in the future? <hr style="width: 40%; margin-left: 0;"></h2>
+      </div>
+      <div class="sectionEarth" style="font-size: 1rem; font-weight: 400; line-height: 1.7; background-color: #fff; color: rgb(57, 57, 57);">
+        <div class="containerEarth">
+        <div class="rowEarth">
+          <div class="colEarth-lg-6">
+            <figure class="imgEarth-dotted-bg">
+            <img src="https://th.bing.com/th/id/OIP.tEKtkyASqtJ4FwsnLmh2JgHaNK?pid=ImgDet&rs=1" alt="Image" class="imgEarth-fluid" style="width: 4.em; height: 29.5em;">
+            </figure>
+            </div>
+        <div class="colEarth-lg-5 mrEarth-auto mbEarth-5">
+        <h3 class="mbEarth-4 sectionEarth-title" style="font-size: 20px;" ><strong>Place for human</strong> In The Future!</h3>
+        <p>Although research and exploration have provided valuable information about Mars, there are still many obstacles that need to be overcome before humans can live on the planet. These include finding ways to produce food, water, and oxygen, protecting against harmful radiation, and dealing with the harsh Martian climate.</p>
+        <p class="mbEarth-5">This could open up new opportunities for exploration and scientific discoveries, as well as provide a backup plan for humanity in case of catastrophic events on Earth.
+        </p>
+        <p><a href="#" class="btnEarth btnEarth-outline-black">Learn More</a></p>
+        </div>
+        </div>
+    </div></div>
+    <br><br>
+    <h2 class="title" style="display: flex; align-items: center;font-size: 35px; justify-content: center; text-align: center; margin-bottom: 30px;color: #ffffffd2">
+      <span class="hr" style="width: 30%; height: 1px; background-color: rgb(255, 255, 255); margin: 0 40px;"></span>
+      OUR GALLERY OF<span style="color: rgb(255, 78, 78); margin-left: 20px; font-size: 45px;"><i> MARS</i></span>
+      <span class="hr" style="width: 30%; height: 1px; background-color: rgb(255, 255, 255); margin: 0 40px;"></span>
+    </h2>
+    <table>
+      <tr>
+        <td style="width: 70%;">
+          <div class="gallery-container">
+            <div class="gallery">
+          <div class="row row4">
+            <div class="col col1"><img src="https://th.bing.com/th/id/OIP.lm3W_tjy3snKjdYVvoeIzQHaEe?pid=ImgDet&rs=1" alt=""></div>
+            <div class="col col2"><img src="https://th.bing.com/th/id/OIP.vf-OB0NTD4JynwkwuypptAHaE7?pid=ImgDet&rs=1" alt=""></div>
+            <div class="col col3"><img src="https://wallpaperaccess.com/full/4514479.jpg" alt=""></div>
+          </div>
+          <div class="row row4">
+            <div class="col col1"><img src="https://th.bing.com/th/id/R.04451d972aa6b27925b4a0de10ba80ca?rik=WBZDdl5ZlX%2b%2fAQ&pid=ImgRaw&r=0" alt=""></div>
+            <div class="col col3"><img src="https://th.bing.com/th/id/R.2047765f2b2a51ea0baba433de12e9ab?rik=g4gslTdWwMiUVg&pid=ImgRaw&r=0" alt=""></div>
+          </div>
+          <div class="row row4">
+            <div class="col col1"><img src="https://www.hdwallpapers.in/download/planet_mars_4k_8k-HD.jpg" alt=""></div>
+            <div class="col col2"><img src="https://th.bing.com/th/id/R.6a7773c3c51f046a52789907ea31d432?rik=ekzb2bSsTMMmAg&riu=http%3a%2f%2finnemedium.pl%2fsites%2fdefault%2ffiles%2fimagecache%2fOryginalny%2fimages%2fmars-32-2048.jpg&ehk=HSF0SX0r52SphndY0%2fIbd7OqA0Xk92P%2bB%2buFcTTepAg%3d&risl=&pid=ImgRaw&r=0" alt=""></div>
+            <div class="col col3"><img src="https://th.bing.com/th/id/OIP.ha5yJcWx7Lr0u7pHOKx21QHaEK?pid=ImgDet&rs=1" alt=""></div>
+            <div class="col col3"><img src="https://th.bing.com/th/id/OIP.qp35blj1hpGpa6rFeOfHpgHaEK?pid=ImgDet&w=1920&h=1080&rs=1" alt=""></div>
+            <div class="col col3"><img src="https://th.bing.com/th/id/R.6b8b8d07152593b2bea79b13bd975d28?rik=0JmTRZlF%2b3mAiA&pid=ImgRaw&r=0" alt=""></div>
+
+          </div>
+            </div></div>
+        </td>
+        <td style="width: 30%; padding-right: 50px;">
+          <div class="content">
+            <h2 style="font-size: 35px; margin-bottom: 30px;color: rgb(255, 255, 152);">Planet Mars - New opportunity for life or threat of catastrophe?</h2>
+            <p style="margin-bottom: 20px;"> The planet Mars is becoming a hot spot in human space research. However, the extremes of living conditions on this planet are threatening all of our plans. Extremely low temperatures, lack of oxygen and thin atmosphere are big challenges for those who want to explore and live on the red planet. In addition, recent surveys have also detected many signs of environmental degradation on Mars, from water evaporation to depletion of the ozone layer. We need a proper strategy to solve these problems before it is too late.</p>
+            <p> However, mining and colonizing Mars also presents technical, environmental and ethical challenges. Scientists and policymakers need to ensure that activities on Mars will not have an adverse effect on the planet, nor will it cause natural or environmental consequences for Earth.
+
+              Therefore, along with new opportunities for life on Mars, mining and colonizing the planet also presents many challenges and risks, and should be considered carefully before deployment.</p>
+          </div>
+        </td>
+      </tr>
+    </table>
+    
+  </section>
+
+<section id="jupiter">
+  <div style="display: flex; height: 100vh;">
+    <div style="flex: 1;">
+      <div style="background-color: rgba(0, 0, 0, 0.482); padding: 20px; height: auto;">
+        <h1 style="color: white; font-size: 106px; text-align: left; margin-top: 20vh; padding-left: 70px; margin-bottom: 20px;">Jupiter</h1>
+        <p style="color: white; text-align: left; padding-left: 70px; padding-bottom: 10px;">Jupiter is the fifth planet from the Sun and is the largest planet in our solar system. It is known for its distinct bands of clouds and the Great Red Spot, a massive storm system...</p>
+        <p style="color: white; text-align: left; padding-left: 70px;">Jupiter's surface is composed mostly of gases, with no solid or rocky surface. It has a thick atmosphere primarily consisting of hydrogen and helium. Jupiter is also home to numerous moons, including the four largest ones known as the Galilean moons...</p>
+                    
+        <table style="margin: 0 auto; border-collapse: collapse; margin-top: 10vh; width: 100%; margin-left: 30px;">
+          <tr style="color: rgb(213, 82, 0); border-bottom: none; font-size: 20px;">
+            <th style="background-color: #000; text-align: center; border-bottom: none; width: 35%;">Distance From Sun</th>
+            <th style="background-color: #000; text-align: center; border-bottom: none; width: 35%;">Length Of Year</th>
+            <th style="background-color: #000; text-align: center; border-bottom: none; width: 35%;">Planet Type</th>
+          </tr>
+          <tr style="font-size: 20px;">
+            <td style="text-align: center;border-bottom: none;">741,522,789 KM</td>
+            <td style="text-align: center;border-bottom: none;">4,333 Earth Days</td>
+            <td style="text-align: center;border-bottom: none;">Gas Giant</td>
+          </tr>
+        </table>
+        
+        
+      </div>
+    </div>
+    <div style="background-image: url('https://th.bing.com/th/id/R.e8b3cadd881f1a680abe64529ac4a1eb?rik=pS6cd6ZFLc%2byxA&pid=ImgRaw&r=0'); background-size: 90%; background-repeat: no-repeat; background-position: center; padding: 20px; flex: 0.85; margin-top: 20px;"></div>           </div>
+  </div><br><br>
+    <hr>
+    <div style="padding-top: 50px; padding-bottom: 30px;">
+      <h2 style="text-transform: uppercase; font-size: 60px; margin-left: 150px; display: flex;">
+        <div>
+          <div class="jupi" style="float: left; margin-right: 60px; padding-top: 35px;">
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        New things in <span style="font-size: 70px; margin-left: 20px;color: rgb(255, 222, 179);"><i>Jupiter</i></span>
+      </h2>
+    </div>
+    
+    <hr style="margin-bottom: 4px;">
+    <div style="background-color: white; color: black; padding-left: 5%; ">  
+      <div class="service-row" style="display: flex; padding-right: 10%;">
+        <div class="service-item" style="display:flex; padding-top: 90px; padding-right: 10%; width: 70%;">
+          <img src="https://cdn-icons-png.flaticon.com/512/2909/2909901.png" alt="Green Energy Icon" class="service-icon" style="width: 200px; height: 200px; margin-right: 20px; padding-bottom: 50px;">
+          <div>
+            <h3 style="padding-left: 10px;">Exploring Jupiter</h3>
+            <ul class="triangle-list" style="text-align: left;font-size: 25px;">
+              <li>Studying Jupiter's Atmosphere and Weather Patterns</li>
+              <li>Investigating Jupiter's Moons and Their Potential for Life</li>
+              <li>Researching Jupiter's Magnetic Field and Radiation Belts</li>
+              <li>Developing Technology for Spacecraft to Explore Jupiter</li>
+            </ul>                
+          </div>
+        </div>
+      
+        <div class="service-item" style="display:flex; align-items:center; padding-top: 90px; width: 70%;">
+          <img src="https://cdn-icons-png.flaticon.com/512/10041/10041779.png" alt="Carbon Footprint Icon" class="service-icon" style="width: 200px; height: 200px; margin-right: 20px; padding-top: 10px;">
+          <div>
+            <h3 style="padding-left: 10px;">Jupiter Missions</h3>
+            <ul class="triangle-list" style="text-align: left;font-size: 25px;">
+              <li>Pioneer 10 and 11, Voyager 1 and 2, Galileo, Juno, and the future Europa Clipper mission.</li>
+              <li>These missions study Jupiter's composition, gravity field, magnetic field, and its moons.</li>
+              <li>The Europa Clipper mission will study Europa, which has a subsurface ocean with potential for life.</li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      
+      <div class="service-row" style="display: flex; padding-right: 10%;">
+        <div class="service-item" style="display:flex; padding-top: 90px; padding-right: 10%; width: 70%;">
+          <img src="https://cdn-icons-png.flaticon.com/512/10833/10833979.png" alt="Coral Reef Icon" class="service-icon" style="width: 200px; height: 200px; margin-right: 20px; padding-top: 10px;">
+          <div>
+            <h3 style="padding-left: 10px;">Jupiter Exploration</h3>
+            <ul class="triangle-list" style="text-align: left;font-size: 25px;">
+              <li>Exploration of Jupiter and its moons provides valuable information about the potential for life beyond Earth.</li>
+              <li>Ground-based telescopes and observatories continue to study Jupiter and its phenomena.</li>
+            </ul> 
+          </div>
+        </div>
+      
+        <div class="service-item" style="display:flex; align-items:center; padding-top: 90px; width: 70%;">
+          <img src="https://cdn-icons-png.flaticon.com/512/6051/6051510.png" alt="Recycling Icon" class="service-icon" style="width: 200px; height: 200px; margin-right: 20px; padding-top: 10px;">
+          <div>
+            <h3 style="padding-left: 10px;">Jupiter Facts</h3>
+            <ul class="triangle-list" style="text-align: left;font-size: 25px;">
+              <li>The fifth planet from the Sun and the largest planet in the Solar System.</li>
+              <li>It is a gas giant with colorful bands of clouds and a giant storm called the Great Red Spot.</li>
+              <li>Jupiter has a strong magnetic field and 79 confirmed moons.</li>
+            </ul> 
+          </div>
+        </div></div><br><br></div>
+<br><br>
+        <table>
+          <tr>
+            <td style="width: 50%; padding-right: 30px; padding-left: 40px; margin-top: 0;">
+              <div class="content">
+                <h2 style="font-size: 55px; margin-bottom: 30px;color: rgb(255, 255, 152); text-align: right;">Storms and Climate change on planet Jupiter <hr></h2>
+                <p style="margin-bottom: 10px;"> The planet Jupiter is one of the largest planets in the solar system, with a diameter 11 times that of Earth.</p>
+                <p style="margin-bottom: 10px;"> Jupiter has the largest storm system in the entire solar system, with winds that can reach speeds of up to 620 km/h. In addition, the flow of gas around this planet is also very complex and often changing.</p>
+                <p> More interestingly, scientists have observed that the storms on Jupiter are becoming stronger and faster moving. This may be due to the planet's global climate change, as weather events on Jupiter are becoming more extreme. This situation can cause significant impacts on objects passing through this area, such as spacecraft or meteorites carrying scientific instruments. Therefore, warning information about storms and climate change on the planet Jupiter is very important to ensure the safety of future space activities.</p>
+              </div>
+            </td>
+            <td style="width: 50%;">
+              <div class="gallery-container">
+                <div class="gallery">
+              <div class="row row4">
+                <div class="col col1"><img src="https://th.bing.com/th/id/R.9c6abec5984ea4a14dcfe5ae63df74fe?rik=T1vs9MODTx5KZg&pid=ImgRaw&r=0" alt=""></div>
+                <div class="col col2"><img src="https://th.bing.com/th/id/OIP._HsDSlUeuzZxgzfq1Oze1gHaEK?pid=ImgDet&rs=1" alt=""></div>
+                <div class="col col3"><img src="https://th.bing.com/th/id/R.e8b05cc8276beee318bd8d308b4a1f40?rik=9RXNukEPfLXUmw&riu=http%3a%2f%2fwww.stgeorgeutah.com%2fwp-content%2fuploads%2f2015%2f12%2fJupiter.jpg&ehk=O55NOnKM9XKI0vanjsPcFEPd9qbu4YQ7%2byDRY7N%2bJ%2fM%3d&risl=&pid=ImgRaw&r=0" alt=""></div>
+              </div>
+              <div class="row row4">
+                <div class="col col1"><img src="https://th.bing.com/th/id/OIP.PJANj9kGsIVljo2sVlHLEAHaE8?pid=ImgDet&rs=1" alt=""></div>
+                <div class="col col3"><img src="https://th.bing.com/th/id/R.9a43294dc746700e30fff88678720cbc?rik=CYQyDNsHPZpdig&riu=http%3a%2f%2fstatic4.businessinsider.com%2fimage%2f5968e1a2c50c29ac008b4a2d-2000%2fjupiter-great-red-spot-voyager-2-nasa-jpl-bjoern-jonsson-sean-doran-flickr-ccbyncnd2-35715946142cf3465e0deo.jpg&ehk=1GKvZQo3Qa7gKq5L%2fQheLtuhM1morBDPA38IM5lhfWA%3d&risl=&pid=ImgRaw&r=0" alt=""></div>
+              </div>
+              <div class="row row4">
+                <div class="col col1"><img src="https://th.bing.com/th/id/R.3d047d70023c57d5c8e991aa3303104b?rik=XnaO%2fl8NjVSzUA&pid=ImgRaw&r=0" alt=""></div>
+                <div class="col col2"><img src="https://www.liveuttarpradesh.com/en/wp-content/uploads/2018/03/Jupiter-4.jpg" alt=""></div>
+                <div class="col col3"><img src="https://th.bing.com/th/id/R.a3010fdda428cd3469f8ae9fd4572fe8?rik=1%2bg%2fyeCb5tFibQ&riu=http%3a%2f%2fi.dailymail.co.uk%2fi%2fpix%2f2018%2f01%2f10%2f14%2f47FB080A00000578-0-image-a-12_1515594575597.jpg&ehk=Zk0KXM3O2%2fVMiyn4Vjz5%2bSrtrOYAxKhDL5nwnl%2fGyqo%3d&risl=&pid=ImgRaw&r=0" alt=""></div>
+                <div class="col col3"><img src="https://cdn.zmescience.com/wp-content/uploads/2018/06/junosolves39-791x1024.jpg" alt=""></div>
+                <div class="col col3"><img src="https://th.bing.com/th/id/R.126ce07472ea314b49b1a856e7860f40?rik=88CtrB0B%2brej8Q&riu=http%3a%2f%2fcdn.zmescience.com%2fwp-content%2fuploads%2f2017%2f03%2fjupiter-0.jpg&ehk=gbMa2do2K%2fLNmKxDaQmoy5ZBddA8XeBNQ8J0XhP5%2faI%3d&risl=&pid=ImgRaw&r=0" alt=""></div>
+    
+              </div>
+                </div></div>
+            </td>
+            
+          </tr>
+        </table><br><br>
+</section>
+<section id="saturn">
+  <div style="display: flex; height: 100vh;">
+    <div style="flex: 1;">
+      <div style="background-color: rgba(0, 0, 0, 0.482); padding: 20px; height: auto;">
+        <h1 style="color: white; font-size: 106px; text-align: left; margin-top: 20vh; padding-left: 70px; margin-bottom: 20px;">Saturn</h1>
+        <p style="color: white; text-align: left; padding-left: 70px; padding-bottom: 10px;">Saturn is the sixth planet from the Sun and is the second-largest planet in our solar system. It is recognized for its prominent ring system, which consists of icy particles...</p>
+        <p style="color: white; text-align: left; padding-left: 70px;">Saturn's surface is mainly composed of gases, with no solid or rocky surface. It has a thick atmosphere primarily consisting of hydrogen and helium. Saturn is also known for its large and diverse collection of moons, with over 80 moons identified...</p>
+                          
+        <table style="margin: 0 auto; border-collapse: collapse; margin-top: 10vh; width: 100%; margin-left: 30px;">
+          <tr style="color: rgb(213, 82, 0); border-bottom: none; font-size: 20px;">
+            <th style="background-color: #000; text-align: center; border-bottom: none; width: 35%;">Distance From Sun</th>
+            <th style="background-color: #000; text-align: center; border-bottom: none; width: 35%;">Length Of Year</th>
+            <th style="background-color: #000; text-align: center; border-bottom: none; width: 35%;">Planet Type</th>
+          </tr>
+          <tr style="font-size: 20px;">
+            <td style="text-align: center;border-bottom: none;">1,465,169,495 KM</td>
+            <td style="text-align: center;border-bottom: none;">10,759 Earth Days</td>
+            <td style="text-align: center;border-bottom: none;">Gas Giant</td>
+          </tr>
+        </table>
+        
+        
+      </div>
+    </div>
+    <div style="background-image: url('https://www.solarsystemscope.com/spacepedia/images/handbook/renders/saturn.png'); background-size: 100%; background-repeat: no-repeat; background-position: center; padding: 20px; flex: 0.85; margin-top: 20px;"></div>           </div>
+  </div>
+  <div style="padding-top: 60px; padding-bottom: 100px;">
+    <div style=" color: black; background-color: white; padding-left: 100px;">
+      
+      <h2 style="text-transform: uppercase; margin-left: 50px; padding-top: 30px; font-size: 40px;display: inline-block; vertical-align: middle;"><img src="https://cdn-icons-png.flaticon.com/512/497/497789.png" style="display: inline-block;width: 40px;"> massive storm on planet Saturn <hr style="width: 40%; margin-left: 60px;"></h2>
+    </div>
+    <div class="sectionEarth" style="font-size: 1rem; font-weight: 400; line-height: 1.7; background-color: #fff; color: rgb(57, 57, 57);">
+      <div class="containerEarth">
+      <div class="rowEarth">
+        <div class="colEarth-lg-6">
+          <figure class="imgEarth-dotted-bg">
+          <img src="https://i.pinimg.com/736x/1d/97/2c/1d972ceaaffe3607fccc10ca571d47c0--saturn-planet-spacecraft.jpg" alt="Image" class="imgEarth-fluid" style="width: 5.em; height: 34em;">
+          </figure>
+          </div>
+      <div class="colEarth-lg-5 mrEarth-auto mbEarth-5">
+      <h3 class="mbEarth-4 sectionEarth-title" style="font-size: 20px;" ><strong>The heaviest gaseous planets</strong> In The Solar System</h3>
+      <p>Although there are no seismic events or heatwaves on its surface, the planet has a unique phenomenon, a massive storm at its south pole. This storm has been observed from hundreds of light-years away and is larger than the Earth.</p>
+      <p class="mbEarth-5" style="margin-top: 10px;">The temperature around this storm is very cold, only about -200 degrees Celsius. The storm continuously lasts and moves at very fast speeds, causing large changes in the atmosphere of this planet. Therefore, scientists always give warnings and closely monitor the evolution of the storm so that they can take preventive measures when necessary.
+      </p>
+      <p><a href="#" class="btnEarth btnEarth-outline-black">Learn More</a></p>
+      </div>
+      </div><br><br>
+  </div></div>
+<br><br>
+<h1 style="font-size: 60px; padding-left: 60px;">
+  <div class="planet" style="float: left; margin-right: 50px;"></div>
+  Miracles in the Universe<hr style="width: 25%; margin-left: 130px;">
+</h1>
+<div class="gallery-container">
+  <div class="gallery">
+<div class="row row4">
+  <div class="col col1"><img src="https://cdn.pixabay.com/photo/2012/08/25/22/22/saturn-54999_1280.jpg" alt=""></div>
+  <div class="col col2"><img src="https://cdn.pixabay.com/photo/2018/07/01/00/33/planet-3508677_1280.jpg" alt=""></div>
+  <div class="col col3"><img src="https://cdn.pixabay.com/photo/2016/05/24/08/22/space-1411922_1280.jpg" alt=""></div>
+  <div class="col col3"><img src="https://cdn.pixabay.com/photo/2020/01/18/08/03/planets-4774616_1280.jpg" alt=""></div>
+</div>
+<table>
+  <tr>
+    <td style="width: 50%; padding-right: 30px; padding-left: 40px; margin-top: 0;">
+      <div class="content">
+        <h2 style="font-size: 45px; margin-bottom: 30px;color: rgb(255, 255, 152);">The consequences of climate change for the planet Saturn</h2>
+        <p style="margin-bottom: 10px;"> The planet Saturn, one of the largest planets in the solar system, is facing many worrying problems. According to scientists, the decline of the ice areas in the south pole of the planet is happening very fast. In addition, the climate on the planet is changing drastically due to the effects of global climate change. The vortex region near the planet's north pole is moving faster than in previous years, causing concern among scientists. Large tornado-like structures on the planet's surface are growing and moving rapidly, one of the unusual phenomena observed on this planet.</p>
+        <p>These issues are causing concern among scientists and raising alarms about the environmental state of the planet. The topic related to the warning information of the planet Saturn could be "The consequences of climate change for the planet Saturn". Researching and solving these problems will play a very important role in protecting the environment and sustaining life on our planet.</p>
+      </div>
+    </td>
+    <td style="width: 50%;">
+      <div class="gallery-container">
+        <div class="gallery">
+      <div class="row row4">
+        <div class="col col1"><img src="https://cdnb.artstation.com/p/assets/images/images/007/147/989/smaller_square/vadim-sadovski-n7.jpg?1504030574" alt=""></div>
+        <div class="col col2"><img src="https://i.pinimg.com/736x/61/9f/a0/619fa031ebf6638da34d91f845efe1d3.jpg" alt=""></div>
+        <div class="col col3"><img src="https://awarenessact.com/wp-content/uploads/2021/01/shutterstock_1880619781.jpg" alt=""></div>
+      </div>
+      <div class="row row4">
+        <div class="col col1"><img src="https://th.bing.com/th/id/R.e83df1f8541c036b18c1e279794d93a6?rik=eUhCZaBMyEMCew&pid=ImgRaw&r=0" alt=""></div>
+        <div class="col col3"><img src="https://getwalls.io/media/large/2020/08/saturn-iphone-widescreen-4k-uhd-5k-8k-large-126635356.jpg" alt=""></div>
+      </div>
+      <div class="row row4">
+        <div class="col col1"><img src="https://i.pinimg.com/originals/93/30/2e/93302e6eb27d71da7f3a1e39c2ffb1b0.png" alt=""></div>
+        <div class="col col2"><img src="https://th.bing.com/th/id/OIP.cjckljEcaWDHG4LGhwuSPAHaGL?pid=ImgDet&w=979&h=816&rs=1" alt=""></div>
+        <div class="col col3"><img src="https://yt3.ggpht.com/a/AATXAJyytesS1dkilENmXKBWJC59ZCv9JC0c6MpFBQ=s900-c-k-c0xffffffff-no-rj-mo" alt=""></div>
+        <div class="col col3"><img src="https://th.bing.com/th/id/OIP.WdLQDwH0own5Xbpp7brKAAHaHP?pid=ImgDet&rs=1" alt=""></div>
+        <div class="col col3"><img src="https://ak.picdn.net/shutterstock/videos/1020936697/thumb/1.jpg" alt=""></div>
+
+      </div>
+        </div></div>
+    </td>
+    
+  </tr>
+</table>
+  
+</section>
+
+<section id="uranus">
+  <div style="display: flex; height: 100vh;">
+    <div style="flex: 1;">
+      <div style="background-color: rgba(0, 0, 0, 0.482); padding: 20px; height: auto;">
+        <h1 style="color: white; font-size: 106px; text-align: left; margin-top: 20vh; padding-left: 70px; margin-bottom: 20px;">Uranus</h1>
+        <p style="color: white; text-align: left; padding-left: 70px; padding-bottom: 10px;">Uranus is the seventh planet from the Sun and is the third-largest planet in our solar system. It is notable for its unique tilted axis, causing it to rotate on its side...</p>
+        <p style="color: white; text-align: left; padding-left: 70px;">Uranus's surface is primarily composed of gases, with no solid or rocky surface. It has a thick atmosphere primarily consisting of hydrogen and helium, along with trace amounts of methane that give it a blue-green color...</p>
+                                
+        <table style="margin: 0 auto; border-collapse: collapse; margin-top: 10vh; width: 100%; margin-left: 30px;">
+          <tr style="color: rgb(213, 82, 0); border-bottom: none; font-size: 20px;">
+            <th style="background-color: #000; text-align: center; border-bottom: none; width: 35%;">Distance From Sun</th>
+            <th style="background-color: #000; text-align: center; border-bottom: none; width: 35%;">Length Of Year</th>
+            <th style="background-color: #000; text-align: center; border-bottom: none; width: 35%;">Planet Type</th>
+          </tr>
+          <tr style="font-size: 20px;">
+            <td style="text-align: center;border-bottom: none;">3,071,502,503 KM</td>
+            <td style="text-align: center;border-bottom: none;">30,687 Earth Days</td>
+            <td style="text-align: center;border-bottom: none;">Ice Giant</td>
+          </tr>
+        </table>
+        
+        
+      </div>
+    </div>
+    <div style="background-image: url('https://www.solarsystemscope.com/spacepedia/images/handbook/renders/uranus.png'); background-size: 90%; background-repeat: no-repeat; background-position: center; padding: 20px; flex: 0.85; margin-top: 20px;"></div>           </div>
+  </div>
+  <br><br>
+
+  <hr>
+    <div class="bannerearth" style="margin-top: 0px;">
+  <div class="content" style="margin-left: 50px;">
+    <div style="font-size: 20px; color: rgb(248, 255, 118);">URANUS, THE ICE GIANT</div>
+    <h2 style="font-size: 40px;">What do we know about Uranus? Is it at risk of "Exploding"?</h2>    
+</div></div> <hr>
+  <div class="sectionUranus" style="font-size: 1rem; font-weight: 400; line-height: 1.7; background-color: rgba(255, 255, 255, 0.942); color: rgb(57, 57, 57);">
+    <div class="containerUranus" style="padding-top: 10px;">
+    <div class="rowUranus">
+    <div class="colUranus-lg-5 mrUranus-auto mbUranus-5">
+    <h3 class="mbUranus-4 sectionUranus-title" style="font-size: 25px;" >Earthquakes and natural disasters on Planet Uranus: <strong>Warning for life and scientific research</strong><hr style="width: 70%;"></h3>
+    <p>Planet Uranus is the seventh planet in the solar system, with a diameter twice that of Earth. Uranus was discovered in 1781 by the English astronomer William Herschel.</p>
+    <p class="mbUranus-5">With its thick atmosphere and twists, Uranus is capable of generating strong winds and other phenomena such as earthquakes and landslides on the surface. This condition could jeopardize life and scientific research on this planet. Research on Uranus is continuing to better understand the planet and its effects on the solar system.</p>
+    <p><a href="#" class="btnUranus btnUranus-outline-black">Learn More</a></p>
+    </div>
+    <div class="colUranus-lg-6">
+    <figure class="imgUranus-dotted-bg">
+    <img src="https://66.media.tumblr.com/298ae4394da80fcbb61e6a3329e8b8aa/tumblr_na3cucoNLc1re0fwgo1_640.jpg" alt="Image" class="imgUranus-fluid" style="padding-top: 20px;">
+    </figure>
+    </div>
+    </div>
+    </div>
+    
+    </div><br><br>
+    <div class="center-table" style="display: flex; justify-content: center;align-items: center;">
+      <table style="border: 2px solid rgb(255, 255, 255); border-collapse: collapse; width: 90%;">
+        <tr>
+          <th colspan="2" style="font-size: 30px; border: 1px solid rgb(255, 255, 255); padding: 50px; background-color: rgba(0, 0, 0, 0); text-align: center;"><img src="https://cdn-icons-png.flaticon.com/512/5579/5579211.png" alt="" style="display: flex; width: 10%; padding-bottom: 10px;"> WARNING INFORMATION ABOUT URANUS</th>
+        </tr>
+        <tr>
+          <td style="border: 1px solid rgb(0, 0, 0); background-color: rgb(255, 255, 255); color: black; text-align: center; padding: 55px;"><strong>Atmosphere</strong></td>
+          <td style="border: 1px solid rgb(255, 255, 255); padding-left: 20px; font-size: 20px;">The atmosphere of Uranus is mostly composed of hydrogen and helium, with a small amount of methane. Methane in the upper atmosphere gives Uranus its blue-green color.</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid rgb(0, 0, 0); background-color: rgb(255, 255, 255); color: black; text-align: center; padding: 55px;"><strong>Rings</strong></td>
+          <td style="border: 1px solid rgb(255, 255, 255); padding-left: 20px; font-size: 20px;">Uranus has 13 known rings. They are mostly made of small particles and dust, and are difficult to see from Earth.</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid rgb(4, 4, 4); background-color: rgb(255, 255, 255); color: black; text-align: center; padding: 55px;"><strong>Magnetosphere</strong></td>
+          <td style="border: 1px solid rgb(255, 255, 255); padding-left: 20px; font-size: 20px;">Uranus has a weak magnetic field that is tilted at an angle of about 60 degrees relative to its axis of rotation. This causes its magnetosphere to be lopsided and irregular.</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid rgb(0, 0, 0); background-color: rgb(255, 255, 255); color: black; text-align: center; padding: 55px;"><strong>Moons</strong></td>
+          <td style="border: 1px solid rgb(255, 255, 255); padding-left: 20px; font-size: 20px;">Uranus has 27 known moons. The five largest moons are Miranda, Ariel, Umbriel, Titania, and Oberon. Miranda has one of the most varied landscapes in the solar system.</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid rgb(0, 0, 0); background-color: rgb(255, 255, 255); color: black; text-align: center; padding: 55px;"><strong>Exploding</strong></td>
+          <td style="border: 1px solid rgb(255, 255, 255); padding-left: 20px; font-size: 20px;">Uranus is not at risk of "exploding." However, it does have extreme seasonal changes due to its unique tilt, with each pole experiencing 42 years of continuous sunlight followed by 42 years of continuous darkness.</td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <div class="gallery-container">
+      <div class="gallery">
+    <div class="row row4">
+      <div class="col col1"><img src="https://th.bing.com/th/id/OIP.8s-ZGUq85yj0zgC-Ddp-xgHaEL?pid=ImgDet&w=1321&h=745&rs=1" alt=""></div>
+      <div class="col col3"><img src="https://greyscalegorilla.com/wp-content/uploads/2020/07/RC2.2103.Still073-1104x1036.jpg" alt=""></div>
+      <div class="col col3"><img src="https://th.bing.com/th/id/OIP._OYvsjyQbi13TlzQkKSWMQD6D6?pid=ImgDet&w=600&h=600&rs=1" alt=""></div>
+      <div class="col col3"><img src="https://th.bing.com/th/id/OIP.oeb8Km_gIvyFQIr2gmzEGQHaEK?pid=ImgDet&w=1280&h=720&rs=1" alt=""></div>
+      <div class="col col3"><img src="https://th.bing.com/th/id/R.9d86aa82a0aa974c4ae0edaad00393dd?rik=GhWwxQL37rH8WA&pid=ImgRaw&r=0" alt=""></div>
+      <div class="col col3"><img src="https://th.bing.com/th/id/R.aff048a3aa7e6705d0307697bcd488f7?rik=xXcE3y5s6rfGqA&pid=ImgRaw&r=0" alt=""></div><div class="col col3"><img src="https://getwalls.io/media/large/2020/08/saturn-iphone-widescreen-4k-uhd-5k-8k-large-126635356.jpg" alt=""></div>
+    </div>
+    <div class="row row4">
+      <div class="col col1"><img src="https://th.bing.com/th/id/R.8e4362b64ae16e7b2f1190767b756ddf?rik=FaUbOTir7QefGA&pid=ImgRaw&r=0" alt=""></div>
+      <div class="col col2"><img src="https://th.bing.com/th/id/R.b255b9b6ada8f816c0bfadf658fc6ad6?rik=T1ru8QV%2b1epnDg&pid=ImgRaw&r=0" alt=""></div>
+    </div>
+    <h2 style="color: #ffff7a;"><i>( Images captured by camera )</i></h2>
+      </div></div>
+<br><br>
+
+</section>
+
+<section id="neptune">
+  <div style="display: flex; height: 100vh;">
+    <div style="flex: 1;">
+      <div style="background-color: rgba(0, 0, 0, 0.482); padding: 20px; height: auto;">
+        <h1 style="color: white; font-size: 106px; text-align: left; margin-top: 20vh; padding-left: 70px; margin-bottom: 20px;">Neptune</h1>
+        <p style="color: white; text-align: left; padding-left: 70px; padding-bottom: 10px;">Neptune is the eighth planet from the Sun and is the fourth-largest planet in our solar system. It is known for its deep blue color and is often referred to as the "Blue Giant"...</p>
+        <p style="color: white; text-align: left; padding-left: 70px;">Neptune's surface is primarily composed of gases, with no solid or rocky surface. It has a thick atmosphere primarily consisting of hydrogen and helium, as well as traces of methane that give it its distinctive blue color...</p>
+                                      
+        <table style="margin: 0 auto; border-collapse: collapse; margin-top: 10vh; width: 100%; margin-left: 30px;">
+          <tr style="color: rgb(213, 82, 0); border-bottom: none; font-size: 20px;">
+            <th style="background-color: #000; text-align: center; border-bottom: none; width: 35%;">Distance From Sun</th>
+            <th style="background-color: #000; text-align: center; border-bottom: none; width: 35%;">Length Of Year</th>
+            <th style="background-color: #000; text-align: center; border-bottom: none; width: 35%;">Planet Type</th>
+          </tr>
+          <tr style="font-size: 20px;">
+            <td style="text-align: center;border-bottom: none;">4,474,290,804 KM</td>
+            <td style="text-align: center;border-bottom: none;">60,190 Earth Days</td>
+            <td style="text-align: center;border-bottom: none;">Ice Giant</td>
+          </tr>
+        </table>
+        
+        
+      </div>
+    </div>
+    <div style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/20/Neptune_cutout.png'); background-size: 90%; background-repeat: no-repeat; background-position: center; padding: 20px; flex: 0.85; margin-top: 20px;"></div>           </div>
+  </div>
+  <br><br>
+  <div style="background-color: white; color: black; padding-bottom: 30px;">
+        <h2 class="title" style="display: flex; align-items: center;font-size: 35px; justify-content: center;padding-top: 40px; text-align: center; margin-bottom: 30px;color: #000000d2">
+          <span class="hr" style="width: 30%; height: 1px; background-color: rgb(0, 0, 0); margin: 0 30px;"></span>
+          OUR GALLERY OF<span style="color: rgb(255, 78, 78); margin-left: 20px; font-size: 45px;"><i> NEPTUNE</i></span>
+          <span class="hr" style="width: 30%; height: 1px; background-color: rgb(0, 0, 0); margin: 0 40px;"></span>
+        </h2>
+        <table>
+          <tr>
+            <td style="width: 70%; height: 50%;">
+              <div class="gallery-container">
+                <div class="gallery">
+              <div class="row row4">
+                <div class="col col1"><img src="https://th.bing.com/th/id/R.530ab880696ed18ce824b704fe90e5c2?rik=P%2fQpKO7VSTJOZw&pid=ImgRaw&r=0" alt=""></div>
+                <div class="col col2"><img src="https://th.bing.com/th/id/R.533a98b4d323a19176ec256eeb04701a?rik=wGYtNOJs4JVdEQ&pid=ImgRaw&r=0" alt=""></div>
+                <div class="col col3"><img src="https://th.bing.com/th/id/R.a23e63ac45504badee980492da66642d?rik=%2fiZJtKgGK6c4eA&pid=ImgRaw&r=0" alt=""></div>
+              </div>
+              <div class="row row4">
+                <div class="col col1"><img src="https://th.bing.com/th/id/R.2a564d0bf9129f29fad961eab2446526?rik=Lul1US8uoYMIoQ&pid=ImgRaw&r=0" alt=""></div>
+              </div>
+              <div class="row row4">
+                <div class="col col1"><img src="https://th.bing.com/th/id/R.07528f77fcb1d8f0aaeb396ecb2d045f?rik=r6%2b2EN3shjlteg&pid=ImgRaw&r=0" alt=""></div>
+                <div class="col col2"><img src="https://th.bing.com/th/id/R.b8c9273d6d56922119c26318321eb3af?rik=QZVJZNRrOEoJgQ&pid=ImgRaw&r=0" alt=""></div>
+                <div class="col col3"><img src="https://th.bing.com/th/id/R.35e978a9155ef68dcb48a49f9b485630?rik=3QRfD4kNI0CK%2fw&riu=http%3a%2f%2fi.imgur.com%2fxxcxv.jpg&ehk=lYjWELwb4ELVMMsWWQgcKQwP9tD%2bQvaL1I2jAYGxl24%3d&risl=&pid=ImgRaw&r=0" alt=""></div>
+                <div class="col col3"><img src="https://i.ytimg.com/vi/HbEdVTmUmK4/maxresdefault.jpg" alt=""></div>
+                <div class="col col3"><img src="https://lh3.googleusercontent.com/proxy/rE53Yiw-5EEkB8YohDCj8zSeH2dXO-3mvVQ7mjKx9CmNMEW-nZsvYbg341v0nZyvIrMw2_dUEngdz1tEO8CpoBVP3mFXOiFiAF1BVqJClMwbvX0-q5B-65vwZto6Jpr5spNdmz1eEe_Vb89EWA=s0-d" alt=""></div>
+
+              </div>
+                </div></div>
+        </td>
+        <td style="width: 30%; padding-right: 50px;">
+          <div class="content">
+            <h2 style="font-size: 55px; margin-bottom: 60px;color: rgb(0, 0, 0);">Challenge called "NEPTUNE"</h2>
+            <p style="margin-bottom: 20px; font-size: 20px;"> Extreme climate: The planet Neptune is so cold that its ice poles could be frozen methane. The surface temperature of the planet only ranges from -201 °C to -218 °C. As a result, the construction of devices and technologies faces these extreme conditions.</p>
+            <p style="margin-bottom: 20px; font-size: 20px;"> Habitability: There is currently no evidence for the existence of life on the planet Neptune. The research to find life on this planet also requires the investment and efforts of science and technology.
+            <p style="margin-bottom: 20px;font-size: 20px;">Meteors and cosmic dust: Meteors and cosmic dust move very quickly in Neptune's orbit and can pose a danger to other spacecraft and equipment sent to the planet.</p>
+            <p style="font-size: 20px;">Understanding its atmosphere: The atmosphere of Neptune is one of the least understood among the gas giants in our solar system. There is a need for further research to understand its composition, dynamics, and how it interacts with the planet's magnetic field.
+              Protection of Neptune's moons: Neptune's largest moon, Triton, is believed to have a subsurface ocean and potential for habitability. It is crucial to protect this moon from contamination by any spacecraft that may be sent there in the future.
+          </div>
+        </td>
+      </tr>
+    </table>              
+  </div><br><br>
+  <div class="containerNeptune">
+    <div class="rowNeptune">
+    <div class="colNeptune-lg-5 mrNeptune-auto mbNeptune-5">
+    <span class="d-blockNeptune textNeptune-uppercase textNeptune-secondary" style="font-size: 25px;">Urgent: Neptune</span>
+    <span class="divider myNeptune-4"></span>
+    <h3 class="mbNeptune-4 sectionNeptune-title" style="font-size: 23px;" >Exploration of the icy worlds & <strong>Studying the magnetosphere</strong></h3>
+    <p>Neptune is part of a region in our solar system known as the Kuiper Belt, which contains many icy worlds and small objects. Further exploration of Neptune and its surroundings could provide insights into the formation and evolution of our solar system.</p>
+    <p class="mbNeptune-5">Like other gas giants, Neptune has a strong magnetic field. However, its unique tilt relative to its rotation axis makes it a challenging subject for study. Understanding the dynamics of Neptune's magnetosphere is essential for advancing our knowledge of the solar system's magnetic environment.</p>
+    <p><a href="#" class="btnNeptune btnNeptune-outline-black">Learn More</a></p>
+    </div>
+    <div class="colNeptune-lg-6">
+    <figure class="imgNeptune-dotted-bg">
+    <img src="https://images6.alphacoders.com/466/thumb-1920-466775.jpg" alt="Image" class="imgNeptune-fluid">
+    </figure>
+    </div>
+    </div>
+    </div>
+
+    </div><br><br>
+
+</section>
+
+
+
+<section id="Home" style="display:block;">
+  <div class="box" data-aos="fade-up">
+    <div class="container" style="display: block; color: aliceblue; text-align: center; ">
+        <h1 style="font-size: 85px;">
+
+          <i>P L A N E T S</i></h1>
+        <p style="text-align: center; font-size: 19px;">The Solar System consists of eight planets, namely Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune, each with unique characteristics and properties.</p>
+    </div>
+  </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <div class="kodfun-galeri">
+      <div id="mercury" style="background-image: url('https://th.bing.com/th/id/R.2659d928b8ae9185d54c980d6364032d?rik=Pp3UpW%2b%2b3yy%2f5g&riu=http%3a%2f%2fdeadstate.org%2fwp-content%2fuploads%2f2014%2f04%2fmercury.jpg&ehk=ghIzXhmn8MMdk99G73VKxaYXfMaD%2fXJNRNr7LMuAeFk%3d&risl=&pid=ImgRaw&r=0');" title="The Mercury"></div> 
+      <div id="venus" style="background-image: url('https://th.bing.com/th/id/R.994ce08b0519436b8f28c6db16638bbd?rik=GKsR7Je8CP2ZTQ&riu=http%3a%2f%2fannesastronomynews.com%2fwp-content%2fuploads%2f2012%2f02%2fVenus1.jpg&ehk=eSiWPir%2feF4whVdCCHBZEDysPWkv1TNlWHBJjBLxY1s%3d&risl=&pid=ImgRaw&r=0');" title="The Venus"></div> 
+      <div id="earth" style="background-image: url('https://d1u1p2xjjiahg3.cloudfront.net/ac18a1c3-a7d0-4838-9dc4-e2ec82d46859.jpg'); background-position: center center; background-repeat: no-repeat;"></div>
+      <div id="mars" style="background-image: url('https://th.bing.com/th/id/R.65a85d62dab0f5914cc01113b5be5193?rik=KIG1%2bdvA4RV2mg&pid=ImgRaw&r=0');" title="The Mars"></div>
+      <div id="jupiter" style="background-image: url('https://2.bp.blogspot.com/-uR6kvRX15EA/V2RIhJSc7AI/AAAAAAAABPw/f4QUn6sWOzAHZHyidPjYIIbukC4SEUkxACLcB/s1600/jupiter-image.jpg');" title="The Jupiter"></div>
+      <div id="saturn" style="background-image: url('https://th.bing.com/th/id/R.a5d3e52ca8d98f5e01ecde7ccce94b09?rik=PM4BjnG5MBSXiw&riu=http%3a%2f%2fscitechdaily.com%2fimages%2fSaturns-Appearance-Explained.jpg&ehk=ZwqQg%2bBPPoD9MCMfUSs8JHDpW4noHk67cEZ7SgstdYQ%3d&risl=&pid=ImgRaw&r=0');" title="The Saturn"></div>
+      <div id="uranus" style="background-image: url('https://th.bing.com/th/id/OIP.vqfpWACSI91kB0fQntfd0QHaE7?pid=ImgDet&rs=1');" title="The Uranus"></div> 
+      <div id="neptune" style="background-image: url('https://th.bing.com/th/id/OIP.IZAhcvyiw2dG9swNCGakIwHaHa?pid=ImgDet&rs=1');" title="The Neptune"></div>      
+    </div>
+    </div><br><br>
+   
+
+
+
+    <div style="display: flex; background-image: url(https://images2.alphacoders.com/724/724710.jpg); background-repeat: no-repeat; background-attachment: fixed; padding: 80px 80px;">
+      <div class="homepage-featured-events" style="border: solid rgba(255, 255, 255, 0.445); width: 70%; border-radius: 10px; justify-content: center; align-items: center;    background-color: #000000d5">
+        <div class="containersss">
+            <h2 class="section-title" style="text-align: center; font-size: 35px;" data-aos="fade-down">
+              <div class="bg">
+                <div class="load"></div>
+              </div>
+              Featured Events</h2><hr style="width: 40%;"><br><br>
+            <div class="event" data-aos="fade-left">
+                <div class="event-image">
+                    <img src="https://images.hdqwalls.com/wallpapers/space-black-hole-va.jpg" alt="Event 1">
+                </div>
+                <div class="event-details">
+                    <div class="event-date">June 15, 2023</div>
+                    <h3 class="event-title">Weird black holes may hold secrets of the early universe</h3>
+                    <p class="event-description">Big black holes in little galaxies, rogue black holes and other behemoths could offer clues to cosmic evolution.</p>
+                </div>
+            </div>
+            <div class="event" data-aos="fade-left">
+                <div class="event-image">
+                    <img src="https://www.sciencenews.org/wp-content/uploads/2023/06/060623_LG_cosmic-cocoon_feat-1380x776.jpg" alt="Event 2">
+                </div>
+                <div class="event-details">
+                    <div class="event-date">June 18, 2023</div>
+                    <h3 class="event-title">A simulation of a dying star shows how it could create gravitational waves</h3>
+                    <p class="event-description">A dying star can emit a jet (red) surrounded by asymmetrical bubbles of material (yellow and green). The motion of this material through spacetime could also emit gravitational waves, researchers suggest.</p>
+                </div>
+            </div>
+            <div class="event" data-aos="fade-left">
+                <div class="event-image">
+                    <img src="https://www.sciencenews.org/wp-content/uploads/2023/05/051523_no_young-saturn-rings_feat-1380x776.jpg" alt="Event 3">
+                </div>
+                <div class="event-details">
+                    <div class="event-date">June 22, 2023</div>
+                    <h3 class="event-title">Saturn’s rings may be no more than 400 million years old</h3>
+                    <p class="event-description">Saturn’s icy, ethereal rings cast a shadow on the planet in this picture captured by NASA’s now-defunct Cassini spacecraft.</p>
+                </div>
+            </div>
+            <div class="event" data-aos="fade-left">
+              <div class="event-image">
+                  <img src="https://www.sciencenews.org/wp-content/uploads/2023/05/050623_50ya_feat-1380x776.jpg" alt="Event 3">
+              </div>
+              <div class="event-details">
+                  <div class="event-date">June 27, 2023</div>
+                  <h3 class="event-title">50 years ago, cosmic rays may have caused Apollo astronauts to see lights</h3>
+                  <p class="event-description">Apollo astronaut Buzz Aldrin, shown here on the moon in 1969, was among the first astronauts to report seeing mysterious flashes of light. Those flashes, attributed to high-energy particles called cosmic rays traveling through the eye, are still a problem for modern astronauts.</p>
+              </div>
+          </div>
+        </div><br>
+        <div style="display: flex; justify-content: center; align-items: center;" data-aos="fade-up">
+          <a href="https://www.sciencenews.org/" target="_blank" style="padding: 10px 20px; background-color: #4a4a4a75; color: #fefefe; text-decoration: none; font-size: 18px; border-radius: 5px;">More Information</a>
+      </div>
+    </div>
+    <div style="width: 30%; border-radius: 10px; margin-left: 20px; border-radius: 10px;">
+      <div data-aos="fade-up-left" style="border: solid rgba(255, 255, 255, 0.445); padding: 20px; font-family: Arial, sans-serif;background-color: #000000d5; color: #333333; border-radius: 10px;">
+        <h2 style="margin-bottom: 0px; color: rgb(205, 205, 205); padding-top: 5px;">ScienceNews</h2>
+        <p style="font-size: 9px; margin-bottom: 7px; color: #8af7ffd6;">INDEPENDENT JOURNALISM SINCE 1921</p>
+        <article style="display: flex; margin-bottom: 30px; background-color: #4a4a4a75;border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 5px; overflow: hidden;">
+            <figure style="margin: 0;">
+                <a href="https://www.sciencenews.org/article/first-time-astrophysicists-star-eating-planet" target="_blank"> 
+                    <img width="530" height="156" src="https://www.sciencenews.org/wp-content/uploads/2023/05/050223_jr_planet-eating-star-1380x776.jpg" class="attachment-thumbnail size-thumbnail" alt="A photo of a dusty barren ground with the tree line seen in the middle distance." decoding="async" loading="lazy" style="border-radius: 5px 0 0 5px; object-fit: cover;">
+                </a>
+            </figure>
+    
+            <div style="padding-left: 15px;">
+                <a href="https://www.sciencenews.org/topic/ecosystems" target="_blank" style="text-decoration: none; color: #8af7ffd6; font-size: 10px;">Astronomy</a>
+    
+                <h2 style="font-size: 18px; margin: 0;">
+                    <a href="https://www.sciencenews.org/article/first-time-astrophysicists-star-eating-planet" target="_blank" style="text-decoration: none; color: #fefefe;">For the first time, astrophysicists have caught a star eating a planet</a>
+                </h2>
+    
+                <div style="font-size: 12px; color: #999999; margin-top: 5px;">By <a href="https://www.sciencenews.org/author/james-r-riordon" target="_blank" style="text-decoration: none; color: #8af7ffd6;">James R. Riordon</a><time datetime="2023-06-16T10:00:00-04:00" style="margin-left: 10px;">14 hours ago</time></div>
+            </div>
+        </article>
+    
+        <article style="display: flex; margin-bottom: 30px; background-color: #4a4a4a75; border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 5px; overflow: hidden;">
+            <figure style="margin: 0;">
+                <a href="https://www.sciencenews.org/article/runaway-black-hole-galaxy-hubble" target="_blank">
+                    <img width="450" height="156" src="https://www.sciencenews.org/wp-content/uploads/2023/03/030723_lg_blackhole_feat-1380x776.jpg" class="attachment-thumbnail size-thumbnail" alt="An illustration of sound waves showing peaks and valleys in different colors" decoding="async" loading="lazy" style="border-radius: 5px 0 0 5px; object-fit: cover;">
+                </a>
+            </figure>
+    
+            <div style="padding-left: 15px;">
+                <a href="https://www.sciencenews.org/topic/physics" target="_blank" style="text-decoration: none; color: #8af7ffd6; font-size: 10px;">Astronomy</a>
+    
+                <h2 style="font-size: 18px; margin: 0;">
+                    <a href="https://www.sciencenews.org/article/runaway-black-hole-galaxy-hubble" target="_blank" style="text-decoration: none; color: #fefefe;">A runaway black hole has been spotted fleeing a distant galaxy</a>
+                </h2>
+    
+                <div style="font-size: 12px; color: #999999; margin-top: 5px;">By <a href="https://www.sciencenews.org/author/lisa-grossman" target="_blank" style="text-decoration: none; color: #8af7ffd6;"> Lisa Grossman</a><time datetime="2023-06-16T07:00:00-04:00" style="margin-left: 10px;">17 hours ago</time></div>
+            </div>
+        </article>
+    </div>
+    <div data-aos="fade-up-left" style="border: solid rgba(255, 255, 255, 0.445); padding: 20px; margin-top: 20px; font-family: Arial, sans-serif;background-color: #000000d5; color: #333333; border-radius: 10px;">
+      <div style="padding: 0px;">
+        <h2 style="margin-bottom: 3px; color: rgb(205, 205, 205); line-height: 1; padding-top: 5px;">Recent Blog</h2>
+        <p style="font-size: 9px; margin-bottom: 7px; color: #8af7ffd6; line-height: 1;">OUR SOLAR SYSTEM</p>
+      </div>
+      
+      <div style="margin-bottom: 30px;">
+        <div style="padding-bottom: 10px;">
+        <a class="blog-img" style="background-image: url(https://www.nydailynews.com/resizer/C9b87l21qzQdgaMBxgD7SYcZd2k=/1200x869/top/arc-anglerfish-arc2-prod-tronc.s3.amazonaws.com/public/WTYGU42S7Y4TSLTBH2CV7GEMS4.jpg); display: block; width: 100%; height: 170px; background-size: cover; background-position: center; border-radius: 10px; padding-bottom: 10px;"></a>
+        </div>
+        <div style="padding-left: 15px;">
+          <h3 style="font-size: 18px; margin: 0;"><a href="#" style="text-decoration: none; color: #fefefe;">Private spaceflight in 2023</a></h3>
+          <div style="font-size: 12px; color: #999999;">
+            <div><span class="fa fa-calendar"></span> Mar. 22, 2023</div>
+            <div><span class="fa fa-comment"></span> 19</div>
+          </div>
+        </div>
+      </div>
+      
+      <div style="margin-bottom: 30px;">
+        <div style="padding-bottom: 10px;">
+          <a class="blog-img" style="background-image: url(https://spaceadventures.com/wp-content/uploads/2020/12/N-Europe-small-320x202.jpg); display: block; width: 100%; height: 170px; background-size: cover; background-position: center; border-radius: 10px; padding-bottom: 10px;"></a>
+          </div>
+        <div style="padding-left: 15px;">
+          <h3 style="font-size: 18px; margin: 0;"><a href="#" style="text-decoration: none; color: #fefefe;">Season’s Greetings 2020</a></h3>
+          <div style="font-size: 12px; color: #999999; margin-top: 5px;">
+            <div><span class="fa fa-calendar"></span> Oct. 04, 2020</div>
+            <div><span class="fa fa-comment"></span> 23</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-bottom: 30px;">
+        <div style="padding-bottom: 10px;">
+          <a class="blog-img" style="background-image: url(https://spaceadventures.com/wp-content/uploads/2019/04/Moonlight_over_Italy_Kelly-1-320x202.jpg); display: block; width: 100%; height: 170px; background-size: cover; background-position: center; border-radius: 10px; padding-bottom: 10px;"></a>
+          </div>
+        <div style="padding-left: 15px;">
+          <h3 style="font-size: 18px; margin: 0;"><a href="#" style="text-decoration: none; color: #fefefe;">Amazing views from the International Space Station</a></h3>
+          <div style="font-size: 12px; color: #999999; margin-top: 5px;">
+            <div><span class="fa fa-calendar"></span> Oct. 19, 2022</div>
+            <div><span class="fa fa-comment"></span> 42</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>   
+  </div>
+<br><br><br><br>
+
+
+
+<div class="box" data-aos="fade-down">
+  <div style="display: flex; margin: 50px; margin-bottom: 5px;">
+    <div style="width: 70%;">
+      <div class="slider">
+        <div class="list">
+          <div class="item">
+            <img src="https://wallpapers-hub.art/wallpaper-images/250545.jpg" alt="">
+          </div>
+          <div class="item">
+            <img src="https://wallpaperaccess.com/full/29265.jpg" alt="">
+          </div>
+          <div class="item">
+            <img src="https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701928122.jpg" alt="">
+          </div>
+          <div class="item">
+            <img src="https://th.bing.com/th/id/R.c83b9d9e70938a0e09f27f8b38eacd09?rik=OWquuZ7Z5XJGvg&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f6%2fe%2fa%2f43313.jpg&ehk=jUE2Ytq6k%2f3h9TDq%2fEEngS5rG%2fMGBlkBxg5wletiU8Y%3d&risl=&pid=ImgRaw&r=0" alt="">
+          </div>
+          <div class="item">
+            <img src="https://wallpaperaccess.com/full/191194.jpg" alt="">
+          </div>
+          <div class="item">
+            <img src="https://th.bing.com/th/id/R.4dd00074cd21714475b030910e5a1dbb?rik=rkUti7U1vZMBRg&pid=ImgRaw&r=0" alt="">
+          </div>
+          <div class="item">
+            <img src="https://wallpapercave.com/wp/wp3831604.jpg" alt="">
+          </div>
+          <div class="item">
+            <img src="https://th.bing.com/th/id/R.c45ed39863a9082ee969ec3cfb74a5d6?rik=JZsJC4DcsY8Hyg&riu=http%3a%2f%2fhdqwalls.com%2fwallpapers%2fgalaxy-4k-zv.jpg&ehk=n%2bPaSfkozXTLHYLy21NCWYXUfW8hqqtiWQu%2fU5mKKQ4%3d&risl=&pid=ImgRaw&r=0" alt="">
+          </div>
+          <div class="item">
+            <img src="https://th.bing.com/th/id/R.e2e52c412dc63f592d68d79ee800e4c2?rik=JNiToCY1zCIJEQ&riu=http%3a%2f%2fwww.pxwall.com%2fwp-content%2fuploads%2f2018%2f04%2fgalaxy-wallpaper-hd-4k.jpg&ehk=VtFN9sbO4jiiMdv4YWCaAmlr7i%2fa%2fYumOdxXWEyxNLk%3d&risl=&pid=ImgRaw&r=0" alt="">
+          </div>
+          <div class="item">
+            <img src="https://th.bing.com/th/id/R.2f29e6e4e480e6339169d6fbb473b330?rik=gu0sx2838CSzpA&riu=http%3a%2f%2fwallpaperswide.com%2fdownload%2fdeep_space_3-wallpaper-800x600.jpg&ehk=2Vlo3zIxWnxOw4D7cYy8RG4EyJwayn4RlZyVTqr8JG0%3d&risl=&pid=ImgRaw&r=0" alt="">
+          </div>
+        </div>
+        <div class="buttons">
+          <button id="prev"><</button>
+          <button id="next">></button>
+        </div>
+        <ul class="dots">
+          <li class="active"></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+      
+    </div>
+    <div style="width: 30%;">
+      <div style="padding: 10px; text-align: right; margin-top: 70px; margin-bottom: 0;">
+        <h1 style="font-size: 60px; margin-top: 0;">Some Of Our Awesome Scenes</h1>
+        <hr style="height: 5px; width: 70%; margin-right: 0px; background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet); border: none;">
+        <p style="font-size: 18px; text-align: right; padding-top: 20px; margin-left: 60px;">
+          Unleash Your Journey through the Cosmos - Where Limitless Beauty Awaits, from Sparkling Stars to Expansive Galactic Realms!
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="gallery-container">
+  <div class="gallery">
+<div class="row row4" style="padding-left: 9rem; padding-right: 34rem; margin-top: 0;">
+  <div class="col col1"><img src="https://wallpapercave.com/wp/wp3837746.jpg" alt=""></div>
+  <div class="col col2"><img src="https://i.pinimg.com/originals/6a/22/41/6a2241589da61710c61454d005a2cf71.jpg" alt=""></div>
+  <div class="col col3"><img src="https://th.bing.com/th/id/R.b23a24c818f8ac455c61741148bd1ad2?rik=mcu4a92of2PS%2fw&pid=ImgRaw&r=0" alt=""></div>
+  <div class="col col3"><img src="https://cdn.pixabay.com/photo/2020/02/07/19/05/spaceship-4828098_960_720.jpg" alt=""></div>
+  <div class="col col3"><img src="https://cdn.pixabay.com/photo/2012/10/10/11/05/space-station-60615_960_720.jpg" alt=""></div>
+  <div class="col col3"><img src="https://cdn.pixabay.com/photo/2020/06/19/22/33/wormhole-5319067_960_720.jpg" alt=""></div>
+  <div class="col col3"><img src="https://cdn.pixabay.com/photo/2016/07/16/19/36/space-probe-1522546_960_720.jpg" alt=""></div>
+</div>
+  </div></div>
+
+    <br><br>
+    
+    <div class="box" data-aos="fade-up">
+      <div style="font-size: 70px; text-align: center; padding-bottom: 50px;"><b>Short Video about <i>SPACE</i></b></div></div><br>
+    <div class="box" data-aos="fade-right" style="padding-left: 30px;">
+    <div style="display: flex;">
+        <div style="padding-left: 40px; padding-top: 30px;">
+            <video id="myVideo1" width="520" height="240" controls autoplay loop>
+                <source src="Videos/satellite.mp4" type="video/mp4">
+              </video>
+        </div>
+        <div style="display: inline-block; margin-left: 100px; margin-bottom: 200px; padding-right: 100px;">
+          <h4 style="display: inline-block; border-bottom: solid #ffffff5d; padding-bottom: 10px;">Cargo Ship Docked at Space Station on Earth</h4>
+          <p>
+            A large cargo ship docking at a space station on Earth. The details on the ship and the surrounding space scenery are depicted clearly, including planets, stars, and clouds. The phenomenon described in the video is a cargo ship conducting activities at a space station.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="box" data-aos="fade-left" style="padding-left: 100px;">
+      <div style="display: flex;">
+        
+        <div style="display: inline-block; margin-left: 10px; margin-bottom: 100px; padding-right: 100px;">
+          <h4 style="display: inline-block; border-bottom: solid #ffffff5d; padding-bottom: 10px;">Space Station Orbiting Mars in the Martian Atmosphere</h4>
+          <p>
+            The details of the space station, including modules, pipelines, and the station's fan-like structure. The surrounding optical scenery is also depicted clearly, with planets, the sun, and clouds.
+          </p>
+        </div>
+        <div style="padding-right: 40px; padding-top: 30px; float: left;">
+          <video id="myVideo2" width="520" height="240" controls autoplay loop>
+              <source src="Videos/galaxy3d.mp4" type="video/mp4">
+            </video>
+      </div>
+      </div>
+    </div>
+    <div class="box" data-aos="fade-right" style="padding-top: 40px; padding-left: 30px;">
+      <div style="display: flex;">
+        <div style="padding-left: 40px; padding-top: 30px;">
+            <video id="myVideo3" width="520" height="240" controls autoplay loop>
+                <source src="Videos/Mars.mp4" type="video/mp4">
+              </video>
+        </div>
+        <div style="display: inline-block; margin-left: 100px; margin-bottom: 100px; padding-right: 100px;">
+          <h4 style="display: inline-block; border-bottom: solid #ffffff5d; padding-bottom: 10px;">3D Galaxy Animation</h4>
+          <p>
+            The complexity and diversity of the universe by showcasing different galaxies and their unique structures. The images and colors used create a colorful and visually stunning space.          </p>
+        </div>
+      </div>
+      
+    </div>
+    </div>
+    <br><br><br><br>
+
+  
+
+
+    
+    <br><br><br>
+    <div class="box" data-aos="fade-up">
+    <td style="white-space: collapse;">
+
+      <div style="background-color: rgba(255, 255, 255, 0.688);zoom: 110%; color: rgb(255, 255, 255); padding: 50px 50px 30px 30px">
+        <h2 class="heading" style="margin-left: 20px; text-align: center; font-size: 120px; color: #000000a4;">About Us</h2><hr style="width: 80%;"><br>
+      <div id="about">
+        <div class="about-container">
+          <img class="about-img" src="png2.png" alt="Chau Ngan" style="float: left; height: 250px; ">
+          <div class="about-desc about-content">      
+            <div class="desc">
+              <div class="rotate">
+                <h2 class="heading" style="margin-left: 20px;color: #000000d2;">22GIT1</h2>
+    </div>
+    <div>
+    <h3 style="color: #000000d2; font-size: 50px;"><i>Chau Ngan</i></h3>
+    <p style="color: rgb(0, 0, 0);">With my experience in web programming and passion for technology, I am confident that I can design and develop diverse and high-quality web applications. I keep up to date with the latest knowledge and skills to meet the ever-increasing demands of the web development industry.</p>
+    <p>
+      <div style="font-size: 0;">
+        <img src="https://img.icons8.com/color/48/000000/facebook.png" alt="Facebook" style="vertical-align: middle; display: inline-block; margin-right: 5px;">
+        <img src="https://img.icons8.com/color/48/000000/tiktok.png" alt="YouTube" style="vertical-align: middle; display: inline-block; margin-right: 5px;">
+        <img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram" style="vertical-align: middle; display: inline-block; margin-right: 5px;">
+     </div>
+    </p>
+          <a href="https://www.facebook.com/nguyenlechau.ngan.p" target="_blank" class="btn btn-primary btn-outline">Contact Me!</a>
+    </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><br><br>
+    <div>
+      <div id="about">
+        <div class="about-container">
+          <img class="about-img" src="png1.png" alt="Thanh Huy" style="float: left; height: 270px;">
+          <div class="about-desc about-content">      
+            <div class="desc">
+              <div class="rotate">
+                <h2 class="heading" style="margin-left: 20px;color: black;">22GIT1</h2>
+    </div>
+    <div>
+    <h3 style="color: #000000d2; font-size: 50px;"><i>Thanh Huy</i></h3>
+    <p style="color: rgb(0, 0, 0);">I am an experienced web developer, passionate about technology and always looking for the latest solutions to build high quality web applications. I am able to work independently or in a team, have a high sense of responsibility and willing to learn to develop myself further.</p>
+    <p>
+      <div style="font-size: 0;">
+        <img src="https://img.icons8.com/color/48/000000/facebook.png" alt="Facebook" style="vertical-align: middle; display: inline-block; margin-right: 5px;">
+        <img src="https://img.icons8.com/color/48/000000/tiktok.png" alt="YouTube" style="vertical-align: middle; display: inline-block; margin-right: 5px;">
+        <img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram" style="vertical-align: middle; display: inline-block; margin-right: 5px;">
+     </div>
+        <a href="https://www.facebook.com/huy.ht.1302" target="_blank" class="btn btn-primary btn-outline">Contact Me!</a>
+    </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><br><hr style="width: 80%;">
+</td></div>
+</section>
+<section id="hotnews" >
+  
+  <div>
+    <div style="display: flex; height: 100vh;">
+      <div style="flex: 1;">
+        <div style="background-color: rgba(0, 0, 0, 0.482); padding: 20px; height: auto;">
+          <h1 style="color: white; font-size: 76px; text-align: left; margin-top: 20vh; padding-left: 70px; margin-bottom: 40px;">
+            <div class="spinnerss" style="margin-bottom: 0;">
+              <div class="loader l1"></div>
+              <div class="loader l2"></div>
+              </div>
+            Miracles in the Universe</h1>
+            <hr style="height: 10px; width: 87%; margin-left: 70px; background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet); border: none;">
+          <p style="color: white; text-align: left; padding-left: 70px; margin-bottom: 20px;">The universe is a vast and mysterious place, full of wonders and extraordinary phenomena. It is a source of endless fascination and exploration for scientists and enthusiasts alike.</p>
+          <p style="color: white; text-align: left; padding-left: 70px;">One of the awe-inspiring miracles in the universe is the phenomenon of black holes. These enigmatic cosmic objects possess such immense gravitational pull that nothing, not even light, can escape from them. They challenge our understanding of space, time, and the fundamental laws of physics.</p>
+        </div>
+      </div>
+      <div style="background-image: url('https://www.pngmart.com/files/22/Galaxy-PNG-Isolated-Photos.png'); background-size: 90%; background-repeat: no-repeat; background-position: center; padding: 20px; flex: 0.85; margin-top: 20px;"></div>           </div>
+    </div>
+  </div><br>
+  <div id="canvas-container" style="padding-top: 0px"></div>
+  <div class="containerss" style="padding-top: 40px; background-color: rgba(254, 254, 254, 0.781); text-align: left;">
+    <p style="display: inline-block; border-bottom: solid #3f1e1ed2;margin-left: 100px; font-size: 50px; color: rgb(55, 25, 25);"><b>Amazing phenomena</b></p><hr>
+  <br>  
+  <div class="grid_layout" style="display: grid; gap: 20px; justify-items: center; align-items: center; margin: 0 auto; width: 90%; ">    <div class="features_teaser">
+      <div class="image_and_description_containerss">
+        <a href="/moon-in-motion/tidal-locking/">
+          <img alt="Tidal Locking" class="img-lazy" src="https://images2.alphacoders.com/594/594261.jpg">
+        </a>
+      </div>
+      <div class="content_title">
+        <a href="/moon-in-motion/tidal-locking/" style="font-size: 20px; padding: 10px 10px 10px 10px">Space exploration</a>
+      </div>
+      <div class="rollover_description" style="font-size: 20px;">
+        This is a stunning photograph of space taken from above, with bright shining stars and vibrant colors of various planets and celestial bodies. The light emitted by the stars creates a serene and mystical scene.
+      </div>
+    </div>
+    <div class="features_teaser">
+      <div class="image_and_description_containerss">
+        <a href="/moon-in-motion/eclipses/">
+          <img alt="Eclipses" class="img-lazy" src="https://images.hdqwalls.com/wallpapers/planet-space-galaxy-art-4k-vy.jpg">
+        </a>
+      </div>
+      <div class="content_title">
+        <a href="/moon-in-motion/eclipses/" style="font-size: 20px; padding: 10px 10px 10px 10px">Space and Galaxies</a>
+      </div>
+      <div class="rollover_description" style="font-size: 20px;">
+        It displays a large planet with a light blue color, revolving around a brightly shining star in the vastness of space. Small stars are also emitting light and other images of celestial bodies appear against the dark backdrop.       </div>
+    </div>
+    <div class="features_teaser">
+      <div class="image_and_description_containerss">
+        <a href="/moon-in-motion/moon-phases/">
+          <img alt="Moon Phases" class="img-lazy" src="https://th.bing.com/th/id/R.377963b7bad601b4f2a5c7615c96f5af?rik=tt%2f9cyvTXFVKZw&riu=http%3a%2f%2fhdqwalls.com%2fwallpapers%2f4k-galaxy-space-i9.jpg&ehk=RtVl%2fOme7Xo4rDcCRTatj7%2b1DfRDO8CFHZbrj9hxZz4%3d&risl=1&pid=ImgRaw&r=0">
+        </a>
+      </div>
+      <div class="content_title">
+        <a href="/moon-in-motion/moon-phases/" style="font-size: 20px; padding: 10px 10px 10px 10px">The Diversity and Infinite</a>
+      </div>
+      <div class="rollover_description" style="font-size: 20px;">
+        Against a backdrop of deep black, we can see stars, planets, and other celestial bodies scattered throughout the vast expanse of space. </div>
+    
+  </div>
+  <div class="features_teaser">
+    <div class="image_and_description_containerss">
+      <a href="/moon-in-motion/tidal-locking/">
+        <img alt="Tidal Locking" class="img-lazy" src="https://i.pinimg.com/originals/a8/cf/d8/a8cfd8dc6b5fbe855eb11943444e1265.jpg">
+      </a>
+    </div>
+    <div class="content_title">
+      <a href="/moon-in-motion/tidal-locking/" style="font-size: 20px; padding: 10px 10px 10px 10px">Scientific Research In Space</a>
+    </div>
+    <div class="rollover_description" style="font-size: 20px;">
+      The astronaut is believed to be participating in an exploration mission within the solar system, developing new technologies and gathering important data about planets and other objects within the solar system.    </div>
+  </div>
+  <div class="features_teaser">
+    <div class="image_and_description_containerss">
+      <a href="/moon-in-motion/tidal-locking/">
+        <img alt="Tidal Locking" class="img-lazy" src="https://th.bing.com/th/id/OIP.RWSqOBvuKz3ndHVvAHPw2AHaEo?pid=ImgDet&rs=1">
+      </a>
+    </div>
+    <div class="content_title">
+      <a href="/moon-in-motion/tidal-locking/" style="font-size: 20px; padding: 10px 10px 10px 10px">Mesmerizing Cosmic Landscape</a>
+    </div>
+    <div class="rollover_description" style="font-size: 20px;">
+      This image depicts a mesmerizing cosmic landscape, with clouds and mist in shades of purple, blue, and pink, along with shining stars and galaxies against the infinite black backdrop of space.    </div>
+  </div>
+  <div class="features_teaser">
+    <div class="image_and_description_containerss">
+      <a href="/moon-in-motion/tidal-locking/">
+        <img alt="Tidal Locking" class="img-lazy" src="https://hdqwalls.com/wallpapers/universe-scenery-hd.jpg">
+      </a>
+    </div>
+    <div class="content_title">
+      <a href="/moon-in-motion/tidal-locking/" style="font-size: 20px; padding: 10px 10px 10px 10px">Stunning View Of The Universe</a>
+    </div>
+    <div class="rollover_description" style="font-size: 20px;">
+      The foreground features a rocky planet with craters and mountains, while in the distance, various galaxies and nebulas can be seen glowing brightly against a dark, starry background.    </div>
+  </div>
+<br></div></div>
+<br><br>
+<h3 style="text-align: center; margin-bottom: 0; font-size: 20px;">Our events</h3>
+<h1 style="position: relative; font-size: 50px; text-align: center; text-transform: uppercase; margin-top: 0; color:#c4fbff;">Featured News</h1>
+<hr style="width: 50%;">
+<br><br>  
+<div style="display: flex; justify-content: center; flex-direction: row-reverse; padding: 20px 90px 20px 60px ;">
+    <div style="text-align: center; margin-left: 50px; max-width: 50%;">
+      <h2 style="text-align: left; font-size: 40px; padding-bottom: 40px; color:#afffff;">Aurora Borealis</h2>
+      <p style="padding-left: 50px;">The Internet has revolutionized the way we communicate, access information, and conduct business. With billions of users worldwide, it has created a truly global network that is constantly evolving and expanding. From social media to e-commerce, the Internet has changed the way we interact with each other and the world around us. With its vast resources and endless possibilities, the Internet has become an indispensable part of modern life, connecting people and communities from all corners of the globe. </p>
+      <div style="display: flex; align-items: center; padding-right: 100px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/545/545781.png" style="width: 100px; margin-right: 10px;">
+        <p style="margin: 0; text-transform: uppercase; color:#afffff"><strong>Click on the photo to see details</strong></p>
+      </div>
+    </div>
+    <div class="image-container">
+      <img src="https://cdn.pixabay.com/photo/2016/02/13/12/26/aurora-1197753_1280.jpg" alt="Image title" class="popup-image" style="max-width: 95%; border-radius: 15%;">
+    </div>
+  </div>
+  <div style="text-align: center; padding-top: 50px; padding-bottom: 50px;">
+    <div style="display: flex; justify-content: flex-end; flex-direction: row-reverse; padding: 20px 60px 20px 90px;">
+      <div class="image-container" style="margin-right: 50px;">
+        <img src="https://th.bing.com/th/id/R.dc702577b807b4610c6c18da5b2ec945?rik=vrlSwXjlLcdL2A&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fVhdfsmu.jpg&ehk=YOukcrfB3DD6t767k%2bh2pW42GDwvPbs5Q9OkXVfgLPQ%3d&risl=&pid=ImgRaw&r=0" alt="Image title" class="popup-image" style="max-width: 95%; border-radius: 15%;">
+      </div>
+      <div style="text-align: center; max-width: 50%;">
+        <h2 style="text-align: left; font-size: 40px; padding-bottom: 40px; color:#afffff;">UFO - Unidentified Flying Object</h2>
+        <p style="padding-right: 50px;">Unidentified flying objects, or UFOs, have long been a topic of fascination and controversy. While some dismiss them as mere hoaxes or misidentifications of conventional aircraft, others believe that they may be evidence of extraterrestrial life visiting our planet. Despite decades of sightings and investigations, the true nature of these mysterious objects remains shrouded in uncertainty. Nevertheless, the search for answers continues to captivate the imaginations of many.</p>
+        <div style="display: flex; align-items: center; justify-content: flex-end; padding-right: 100px;">
+          <p style="margin: 0; text-transform: uppercase; color:#afffff; margin-left: 130px;"><strong>Click on the photo to see details</strong></p>
+          <img src="https://cdn-icons-png.flaticon.com/512/545/545781.png" style="width: 100px; margin-right: 10px; transform: scaleX(-1);">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="popup">
+    <span class="close-btn">&times;</span>
+    <img src="https://cdn.pixabay.com/photo/2016/02/13/12/26/aurora-1197753_1280.jpg">
+    <div class="image-info">
+      <h2>Aurora Borealis</h2>
+      <p style="padding-right: 40px;">The aurora borealis, also known as the Northern Lights, is a natural light display caused by particles from the sun colliding with the Earth's magnetic field. This creates stunning colors and patterns in the sky, with green and pink being the most common colors seen. The best time to see this phenomenon is during the winter months in the northern hemisphere, typically from September to March, with popular destinations for viewing including Alaska, Norway, Sweden, Finland, and Iceland. The cultural significance of the aurora borealis varies among different indigenous peoples of the Arctic, with Inuit mythology believing it represents spirits playing a game with a walrus skull and the Lapps or Sami people of Scandinavia believing it to be the souls of their ancestors. Today, the aurora borealis is a popular subject for photographers, artists, and tourists who travel to remote locations to witness its beauty firsthand.</p>
+    </div>
+  </div>
+  <div class="popup">
+    <span class="close-btn">&times;</span>
+    <img src="https://th.bing.com/th/id/R.42239349ee5561e33cb06116e055c6a3?rik=aebdRTfK3OTUlA&pid=ImgRaw&r=0">
+    <div class="image-info">
+      <h2>Unidentified Flying Object</h2>
+      <p style="padding-right: 40px;">Unidentified flying objects, or UFOs, are a topic that has fascinated people for decades. There have been countless reports of strange and unexplained sightings in the skies, often accompanied by claims of alien visitation.
+
+        While there is no concrete proof that these sightings are indeed extraterrestrial in nature, there are many who believe that they may be evidence of intelligent life from other planets. Some even claim to have had personal encounters with these beings.
+        
+        Despite the skepticism and ridicule that often accompanies discussions of UFOs, there are serious researchers who are dedicated to studying this phenomenon. They use a variety of methods, including eyewitness accounts, radar data, and physical evidence, to try and unravel the mysteries of UFO sightings.
+        
+        As technology continues to advance, it is possible that we may one day find concrete answers to the questions surrounding UFOs. Until then, the topic remains a source of intrigue and speculation for many.
+      </p>
+    </div>
+  </div>
+  <div class="carda" style="padding-top: 50px; padding-bottom: 50px;">
+    <div class="heading">Register to receive <span>Galaxy</span></div>
+    <div class="contentt">
+        <div class="itemm item--create">
+            <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 12L18.3431 17.6569L16.9289 16.2426L21.1716 12L16.9289 7.75736L18.3431 6.34315L24 12ZM2.82843 12L7.07107 16.2426L5.65685 17.6569L0 12L5.65685 6.34315L7.07107 7.75736L2.82843 12ZM9.78845 21H7.66009L14.2116 3H16.3399L9.78845 21Z" fill="currentColor"></path>
+            </svg>
+            <span>Create</span>
+        </div>
+        <div class="itemm item--post">
+            <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.99958 12.9998C4.99958 7.91186 7.90222 3.56348 11.9996 1.81787C16.0969 3.56348 18.9996 7.91186 18.9996 12.9998C18.9996 13.8227 18.9236 14.6263 18.779 15.4026L20.7194 17.2352C20.8845 17.3911 20.9238 17.6388 20.815 17.8381L18.3196 22.4132C18.1873 22.6556 17.8836 22.7449 17.6412 22.6127C17.5993 22.5898 17.5608 22.5611 17.5271 22.5273L15.2925 20.2927C15.1049 20.1052 14.8506 19.9998 14.5854 19.9998H9.41379C9.14857 19.9998 8.89422 20.1052 8.70668 20.2927L6.47209 22.5273C6.27683 22.7226 5.96025 22.7226 5.76498 22.5273C5.73122 22.4935 5.70246 22.4551 5.67959 22.4132L3.18412 17.8381C3.07537 17.6388 3.11464 17.3911 3.27975 17.2352L5.22014 15.4026C5.07551 14.6263 4.99958 13.8227 4.99958 12.9998ZM6.47542 19.6955L7.29247 18.8785C7.85508 18.3159 8.61814 17.9998 9.41379 17.9998H14.5854C15.381 17.9998 16.1441 18.3159 16.7067 18.8785L17.5237 19.6955L18.5056 17.8954L17.4058 16.8566C16.9117 16.39 16.6884 15.7044 16.8128 15.0363C16.9366 14.3721 16.9996 13.691 16.9996 12.9998C16.9996 9.13025 15.0045 5.69953 11.9996 4.04021C8.99462 5.69953 6.99958 9.13025 6.99958 12.9998C6.99958 13.691 7.06255 14.3721 7.18631 15.0363C7.31078 15.7044 7.08746 16.39 6.59338 16.8566L5.49353 17.8954L6.47542 19.6955ZM11.9996 12.9998C10.895 12.9998 9.99958 12.1044 9.99958 10.9998C9.99958 9.89525 10.895 8.99982 11.9996 8.99982C13.1041 8.99982 13.9996 9.89525 13.9996 10.9998C13.9996 12.1044 13.1041 12.9998 11.9996 12.9998Z" fill="currentColor"></path>
+            </svg>
+            <span>Post</span>
+        </div>
+        <div class="itemm item--inspire">
+            <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.6144 17.7956C10.277 18.5682 9.20776 18.5682 8.8704 17.7956L7.99275 15.7854C7.21171 13.9966 5.80589 12.5726 4.0523 11.7942L1.63658 10.7219C.868536 10.381.868537 9.26368 1.63658 8.92276L3.97685 7.88394C5.77553 7.08552 7.20657 5.60881 7.97427 3.75892L8.8633 1.61673C9.19319.821767 10.2916.821765 10.6215 1.61673L11.5105 3.75894C12.2782 5.60881 13.7092 7.08552 15.5079 7.88394L17.8482 8.92276C18.6162 9.26368 18.6162 10.381 17.8482 10.7219L15.4325 11.7942C13.6789 12.5726 12.2731 13.9966 11.492 15.7854L10.6144 17.7956ZM4.53956 9.82234C6.8254 10.837 8.68402 12.5048 9.74238 14.7996 10.8008 12.5048 12.6594 10.837 14.9452 9.82234 12.6321 8.79557 10.7676 7.04647 9.74239 4.71088 8.71719 7.04648 6.85267 8.79557 4.53956 9.82234ZM19.4014 22.6899 19.6482 22.1242C20.0882 21.1156 20.8807 20.3125 21.8695 19.8732L22.6299 19.5353C23.0412 19.3526 23.0412 18.7549 22.6299 18.5722L21.9121 18.2532C20.8978 17.8026 20.0911 16.9698 19.6586 15.9269L19.4052 15.3156C19.2285 14.8896 18.6395 14.8896 18.4628 15.3156L18.2094 15.9269C17.777 16.9698 16.9703 17.8026 15.956 18.2532L15.2381 18.5722C14.8269 18.7549 14.8269 19.3526 15.2381 19.5353L15.9985 19.8732C16.9874 20.3125 17.7798 21.1156 18.2198 22.1242L18.4667 22.6899C18.6473 23.104 19.2207 23.104 19.4014 22.6899ZM18.3745 19.0469 18.937 18.4883 19.4878 19.0469 18.937 19.5898 18.3745 19.0469Z" fill="currentColor"></path>
+            </svg>
+            <span>Inspire</span>
+        </div>
+    </div>
+    <button>Uncover the endless mysteries of the universe!</button><br>
+</div>
+
+  
+  <h2 style="font-size: 50px; margin-left: 60px; padding-top: 50px;">Lasted Updates <i style="font-size: 20px; color:#afffff;">(Click on the pictures for more details)</i><hr style="width: 10%; margin-left: 0;"></h2>
+  <div style="display: flex; justify-content: center; padding-left: 120px; padding-right: 120px;">
+    <div class="image-container" style="margin-right: 2px;">
+      <img src="https://wallpapercave.com/wp/wp2209524.jpg" alt="Image title" class="popup-image" style="max-width: 95%;">
+    </div>
+    <div class="image-container" style="margin-right: 2px; position: relative; display: inline-block;">
+      <img src="https://th.bing.com/th/id/OIP.iBcULMZuXAxRLOv2heAaDAHaEI?pid=ImgDet&w=1970&h=1100&rs=1" alt="Image title" class="popup-image" style="max-width: 95%; height: 180px;">
+      <img src="https://cdn-icons-png.flaticon.com/512/891/891446.png" alt="Icon" style="position: absolute; top: 0; right: 0;max-width: 30%; height: auto;">
+    </div>
+    <div class="image-container" style="margin-right: 2px; position: relative; display: inline-block;">
+      <img src="https://avatars.mds.yandex.net/get-pdb/2056332/a869c0f6-fb2b-4e93-9c0e-fba0aa70eabb/s1200" alt="Image title" class="popup-image" style="max-width: 95%;">
+      <img src="https://cdn-icons-png.flaticon.com/512/891/891446.png" alt="Icon" style="position: absolute; top: 0; right: 0;max-width: 30%; height: auto;">
+    </div>
+    <div class="image-container">
+      <img src="https://th.bing.com/th/id/R.6059f0d340de06116ccf11006c66f26a?rik=O7m3%2fLa812tu1A&riu=http%3a%2f%2fwallup.net%2fwp-content%2fuploads%2f2016%2f01%2f295149-Earth-meteors-space-universe.jpg&ehk=NCVGDm0tJuozzuJjZQbwG9r%2fuGx52yYjMBMZ6OhJTb8%3d&risl=&pid=ImgRaw&r=0" alt="Image title" class="popup-image" style="max-width: 95%; height: 180px;">
+    </div>
+  </div>
+  <div style="display: flex; justify-content: center; padding-left: 123px; padding-right: 120px; padding-top: 5px;">
+    <div class="image-container" style="margin-right: 0px; position: relative; display: inline-block;">
+      <img src="https://external-preview.redd.it/zHT45fkXv6hpbV4o8KzqAUZYxSFX8iYIZdi05mw9Ekk.jpg?auto=webp&s=c73a5c2d4f7ac9343874d5abd6e264dcc2fc96d0" alt="Image title" class="popup-image" style="max-width: 98%;">
+      <img src="https://cdn-icons-png.flaticon.com/512/891/891446.png" alt="Icon" style="position: absolute; top: 0; right: 0;max-width: 30%; height: auto;">
+    </div>
+    <div class="image-container" style="margin-right: 2px;">
+      <img src="https://images.hdqwalls.com/wallpapers/quasar-scifi-4k-el.jpg" alt="Image title" class="popup-image" style="max-width: 97%; height: 357px; width: 800px;">
+    </div>
+  </div>
+  <div style="display: flex; justify-content: center; padding-left: 123px; padding-right: 123px; padding-top: 5px;">
+    <div class="image-container" style="margin-right: 2px;">
+      <img src="https://th.bing.com/th/id/R.1e4be9be9af84a170bbc4c2f164bfadc?rik=4S6IAJyAdZuWRw&riu=http%3a%2f%2fstatic.digg.com%2fimages%2feb88ae2b9266432993ca983162ce4b3c_9888aa6458444bc79720e46db7fbaf7c_header.jpeg&ehk=qOxRZgp1HQcV9upP0SYdNZ8T4NZqYa3mpoOIV9ykNb8%3d&risl=&pid=ImgRaw&r=0" alt="Image title" class="popup-image" style="max-width: 95%; height: 102px;">
+    </div>
+    <div class="image-container" style="margin-right: 2px;">
+      <img src="https://th.bing.com/th/id/R.b80537eff062f8aaf589783d0a10d2a9?rik=8bXYYjIbKx4fMw&riu=http%3a%2f%2fwww.thenology.com%2fwp-content%2fuploads%2f2016%2f01%2fgalaxy-wallpaper-8.jpg&ehk=IQL75AyEAZAmNXmuMYiZvVp2uqJv6gDeCCZ8fnHhhCE%3d&risl=&pid=ImgRaw&r=0" alt="Image title" class="popup-image" style="max-width: 95%;">
+    </div>
+    <div class="image-container" style="margin-right: 2px;">
+      <img src="https://hdqwalls.com/download/astronaut-galaxy-space-stars-digital-art-4k-hs-3840x2160.jpg" alt="Image title" class="popup-image" style="max-width: 95%; height: 103px;">
+    </div>
+    <div class="image-container" style="margin-right: 2px;">
+      <img src="https://th.bing.com/th/id/OIP.jUg7nOssrBQ40IyyshknxgHaEo?pid=ImgDet&rs=1" alt="Image title" class="popup-image" style="max-width: 95%;">
+    </div>
+    <div class="image-container" style="margin-right: 2px;">
+      <img src="https://th.bing.com/th/id/R.872464a4493ca3edd8e96f5bda1ab0ea?rik=aguyZNn%2bI0jYOg&riu=http%3a%2f%2fwww.tablet-pc-wallpapers.com%2fpics-1280x800%2fspace%2fwallpaper-208.jpg&ehk=XCi1W7CI5xV5%2f5j1zxy4HRseD2NGoh1BvmeVVv8eUlo%3d&risl=&pid=ImgRaw&r=0" alt="Image title" class="popup-image" style="max-width: 95%;">
+    </div>
+    <div class="image-container" style="margin-right: 2px;">
+      <img src="https://th.bing.com/th/id/R.a21d0d53ec993d0334e2cd2e172d0ca3?rik=IUfYHpnhn5EFSg&pid=ImgRaw&r=0" alt="Image title" class="popup-image" style="max-width: 95%;">
+    </div>
+    <div class="image-container" style="margin-right: 2px;">
+      <img src="https://th.bing.com/th/id/R.7793142db0d7d9050be29bfc33e9223d?rik=DngMB9R2OSqfnA&pid=ImgRaw&r=0" alt="Image title" class="popup-image" style="max-width: 95%; height: 103px;">
+    </div>
+  </div>
+    <div class="popup">
+      <span class="close-btn">&times;</span>
+      <img src="https://th.bing.com/th/id/R.1d4bfaf2e9782f2aec5510cd603bacf0?rik=ai25oC79KyBXGA&pid=ImgRaw&r=0">
+      <div class="image-info">
+        <h2>Satellite & The Earth</h2>
+        <p style="padding-right: 40px;">
+          This image depicts a satellite looking down on Earth from a far distance. In the picture, we can see Earth illuminated by sunlight, with the oceans, continents, and swirling white clouds visible. The green and blue hues of the oceans are very vivid and create a strikingly beautiful scene. Additionally, we can see dry and arid desert regions, towering mountain ranges, and winding rivers. From this perspective, we can clearly see the diversity and stunning beauty of the planet Earth.
+        </p>
+      </div>
+    </div>
+    <div class="popup">
+      <span class="close-btn">&times;</span>
+      <img src="https://free4kwallpapers.com/uploads/originals/2019/11/18/black-hole-wallpaper.jpg">
+      <div class="image-info">
+        <h2>Black Hole</h2>
+        <p style="padding-right: 40px;">
+          This image provides us with a stunning view of a black hole, a mysterious and enigmatic astronomical phenomenon. In the picture, we see a dark sky with only a bright point in its center emitting sparkling blue light. That is the event horizon of the black hole, where space and time are warped in inexplicable ways. The surroundings are clouds of gas and dust being drawn into the black hole and emitting light as they heat up during their fall. The scene is very unique and eerie, giving us a sense of looking at something beyond words.
+        </p>
+      </div>
+    </div>
+    <div class="popup">
+      <span class="close-btn">&times;</span>
+      <img src="https://i.ytimg.com/vi/YMGVBAjC2mI/maxresdefault.jpg">
+      <div class="image-info">
+        <h2>Comet</h2>
+        <p style="padding-right: 40px;">
+          This image provides us with a glimpse of a comet, a fascinating and mysterious astronomical phenomenon. In the picture, we see a bright, shimmering object against a dark sky. That is the comet, a large rock or ice body that moves through space and follows a path around the majority of time. If you look closely, you may notice the comet's tail, a long, curved stream of smoke and dust that points away from the Sun. This tail is formed when the comet comes into contact with Earth's atmosphere and heats up, creating a cloud of dust and gas that is blown away along the comet's orbit. Comets are one of the most interesting and studied astronomical phenomena.
+        </p>
+      </div>
+    </div>
+    <div class="popup">
+      <span class="close-btn">&times;</span>
+      <img src="https://static5.businessinsider.com/image/5daf0922cc4a0a51da1d59bb-952/shutterstock297359225.jpg">
+      <div class="image-info">
+        <h2>Meteor</h2>
+        <p style="padding-right: 40px;">A meteor or shooting star is a natural phenomenon when small objects in space fly past the Earth and enter the Earth's atmosphere. When they come into contact with the atmosphere, they heat up and produce beautiful light in the night sky.
+
+          Meteors often appear as a long, streaky light across the night sky, and can last only a few seconds or up to a minute. Meteors are sometimes referred to as 'meteor showers' when many objects fall to Earth within a short period of time, creating a visible phenomenon in the night sky.
+          
+          Meteors are a beautiful natural phenomenon and have become an iconic symbol of the universe and nature. Astronomy enthusiasts often follow events related to meteors to observe and capture photographs of this phenomenon.
+        </p>
+      </div>
+    </div>
+
+    <div class="popup">
+      <span class="close-btn">&times;</span>
+      <img src="https://i.pinimg.com/originals/28/8b/49/288b497299164e1b7ce0d23176ef0622.jpg">
+      <div class="image-info">
+        <h2>Meteor</h2>
+        <p style="padding-right: 40px;">
+          "Ghosting" in the universe refers to a phenomenon where light from distant stars or gas clouds is bent around massive objects like stars and galaxies, causing them to appear as distorted images in space behind the object. This effect is similar to seeing a shadow cast by a person on a white background creating an image on a wall behind them. However, ghosting only occurs at certain points in space and is not a common occurrence. To observe ghosting, observation equipment must be positioned correctly and gather data over an extended period to determine the movement of the massive objects in that region.
+        </p>
+      </div>
+    </div>
+    <div class="popup">
+      <span class="close-btn">&times;</span>
+      <img src="https://i.pinimg.com/736x/11/88/26/118826ef2c6d9f1a1890a225eac74077.jpg">
+      <div class="image-info">
+        <h2>Quasar</h2>
+        <p style="padding-right: 40px;">Quasars (short for "super-outpass emitters") are a class of extremely bright distant objects, thought to be related to the supermassive black holes at the centers of galaxies. Quasars emit a lot of energy, hundreds of millions of times more than the Hertzsprung-Russell (HR) Diagram, where HR is a graph of the emission power and effective temperature of the stars.
+
+          Quasars are emitting objects with broad emission spectra and reflect the existence of supermassive black holes in their centers. They are found throughout the universe and are thought to have formed in the early universe when the universe was just beginning to form. Quasars are typically between 0.6 and 12 billion years old.
+          
+          In addition, quasars are considered important mathematical models to explain how supermassive black holes work and how galaxies grow.
+      </div>
+    </div>
+<br><br>
+    
+</section>
+    
+<section id="entertain">
+  <canvas id="canvas"></canvas>
+    <a href="https://codepen.io/Loopez10/full/dMaVdQ" class="full-screen" target="_blank"></a>
+</section>
+
+<section id="register"> 
+  <form class="form_container">
+      <div class="title_container" style="padding-top: 20px;">
+          <div class="spinner">
+              <div class="spinner1">
+              </div>
+          </div>
+        <p class="title">Register to receive New notifications</p>
+        <span class="subtitle">Get started with our web, just create an account and enjoy the experience.</span>
+      </div>
+      <div class="input_container">
+        <label class="input_label" for="email_field">Email</label>
+        <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg" class="icon">
+          <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#141B34" d="M7 8.5L9.94202 10.2394C11.6572 11.2535 12.3428 11.2535 14.058 10.2394L17 8.5"></path>
+          <path stroke-linejoin="round" stroke-width="1.5" stroke="#141B34" d="M2.01577 13.4756C2.08114 16.5412 2.11383 18.0739 3.24496 19.2094C4.37608 20.3448 5.95033 20.3843 9.09883 20.4634C11.0393 20.5122 12.9607 20.5122 14.9012 20.4634C18.0497 20.3843 19.6239 20.3448 20.7551 19.2094C21.8862 18.0739 21.9189 16.5412 21.9842 13.4756C22.0053 12.4899 22.0053 11.5101 21.9842 10.5244C21.9189 7.45886 21.8862 5.92609 20.7551 4.79066C19.6239 3.65523 18.0497 3.61568 14.9012 3.53657C12.9607 3.48781 11.0393 3.48781 9.09882 3.53656C5.95033 3.61566 4.37608 3.65521 3.24495 4.79065C2.11382 5.92608 2.08114 7.45885 2.01576 10.5244C1.99474 11.5101 1.99475 12.4899 2.01577 13.4756Z"></path>
+        </svg>
+        <input placeholder="name@mail.com" title="Inpit title" name="input-name" type="text" class="input_field" id="email_field">
+      </div>
+      <div class="input_container">
+        <label class="input_label" for="password_field">Password</label>
+        <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg" class="icon">
+          <path stroke-linecap="round" stroke-width="1.5" stroke="#141B34" d="M18 11.0041C17.4166 9.91704 16.273 9.15775 14.9519 9.0993C13.477 9.03404 11.9788 9 10.329 9C8.67911 9 7.18091 9.03404 5.70604 9.0993C3.95328 9.17685 2.51295 10.4881 2.27882 12.1618C2.12602 13.2541 2 14.3734 2 15.5134C2 16.6534 2.12602 17.7727 2.27882 18.865C2.51295 20.5387 3.95328 21.8499 5.70604 21.9275C6.42013 21.9591 7.26041 21.9834 8 22"></path>
+          <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#141B34" d="M6 9V6.5C6 4.01472 8.01472 2 10.5 2C12.9853 2 15 4.01472 15 6.5V9"></path>
+          <path fill="#141B34" d="M21.2046 15.1045L20.6242 15.6956V15.6956L21.2046 15.1045ZM21.4196 16.4767C21.7461 16.7972 22.2706 16.7924 22.5911 16.466C22.9116 16.1395 22.9068 15.615 22.5804 15.2945L21.4196 16.4767ZM18.0228 15.1045L17.4424 14.5134V14.5134L18.0228 15.1045ZM18.2379 18.0387C18.5643 18.3593 19.0888 18.3545 19.4094 18.028C19.7299 17.7016 19.7251 17.1771 19.3987 16.8565L18.2379 18.0387ZM14.2603 20.7619C13.7039 21.3082 12.7957 21.3082 12.2394 20.7619L11.0786 21.9441C12.2794 23.1232 14.2202 23.1232 15.4211 21.9441L14.2603 20.7619ZM12.2394 20.7619C11.6914 20.2239 11.6914 19.358 12.2394 18.82L11.0786 17.6378C9.86927 18.8252 9.86927 20.7567 11.0786 21.9441L12.2394 20.7619ZM12.2394 18.82C12.7957 18.2737 13.7039 18.2737 14.2603 18.82L15.4211 17.6378C14.2202 16.4587 12.2794 16.4587 11.0786 17.6378L12.2394 18.82ZM14.2603 18.82C14.8082 19.358 14.8082 20.2239 14.2603 20.7619L15.4211 21.9441C16.6304 20.7567 16.6304 18.8252 15.4211 17.6378L14.2603 18.82ZM20.6242 15.6956L21.4196 16.4767L22.5804 15.2945L21.785 14.5134L20.6242 15.6956ZM15.4211 18.82L17.8078 16.4767L16.647 15.2944L14.2603 17.6377L15.4211 18.82ZM17.8078 16.4767L18.6032 15.6956L17.4424 14.5134L16.647 15.2945L17.8078 16.4767ZM16.647 16.4767L18.2379 18.0387L19.3987 16.8565L17.8078 15.2945L16.647 16.4767ZM21.785 14.5134C21.4266 14.1616 21.0998 13.8383 20.7993 13.6131C20.4791 13.3732 20.096 13.1716 19.6137 13.1716V14.8284C19.6145 14.8284 19.619 14.8273 19.6395 14.8357C19.6663 14.8466 19.7183 14.8735 19.806 14.9391C19.9969 15.0822 20.2326 15.3112 20.6242 15.6956L21.785 14.5134ZM18.6032 15.6956C18.9948 15.3112 19.2305 15.0822 19.4215 14.9391C19.5091 14.8735 19.5611 14.8466 19.5879 14.8357C19.6084 14.8273 19.6129 14.8284 19.6137 14.8284V13.1716C19.1314 13.1716 18.7483 13.3732 18.4281 13.6131C18.1276 13.8383 17.8008 14.1616 17.4424 14.5134L18.6032 15.6956Z"></path>
+        </svg>
+        <input placeholder="Password" title="Inpit title" name="input-name" type="password" class="input_field" id="password_field">
+      </div>
+      <div class="input_container">
+          <label class="input_label" for="phone_field">Phone Number</label>
+          <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg" class="icon">
+              <path stroke-linecap="round" stroke-width="1.5" stroke="#141B34" d="M7.5 17.25V16.5C7.5 13.7144 9.96469 11.25 12.75 11.25C15.5353 11.25 18 13.7144 18 16.5V17.25"></path>
+              <path stroke-linejoin="round" stroke-width="1.5" stroke="#141B34" d="M17.25 8.25C16.1607 6.97314 14.6442 6.25 12.9821 6.25H11.0179C9.35577 6.25 7.83931 6.97314 6.75 8.25L6.75 15.75C7.83931 17.0269 9.35577 17.75 11.0179 17.75H12.9821C14.6442 17.75 16.1607 17.0269 17.25 15.75V8.25Z"></path>
+              <path fill="#141B34" d="M10.4385 13.3272C10.5477 13.4247 10.6681 13.4813 10.7884 13.4813C10.9088 13.4813 11.0292 13.4247 11.1385 13.3272L12.3374 12.3722C12.7315 12.0876 13.2685 12.0876 13.6626 12.3722C14.0567 12.6569 14.0567 13.1637 13.6626 13.4484L12.4637 14.4034C12.2561 14.5462 12.0142 14.6172 11.7719 14.6172C11.5296 14.6172 11.2877 14.5462 11.0802 14.4034L9.88129 13.4484C9.48723 13.1637 9.48723 12.6569 9.88129 12.3722C10.2754 12.0876 10.8123 12.0876 11.2064 12.3722L11.6057 12.6997L11.2116 13.0592C11.1012 13.1567 10.991 13.2133 10.8806 13.2133C10.7703 13.2133 10.6601 13.1567 10.5497 13.0592L10.4385 13.3272Z"></path>
+          </svg>
+          <input placeholder="Phone Number" title="Input title" name="input-name" type="tel" class="input_field" id="phone_field">
+      </div>
+          
+      <button title="Sign In" type="submit" class="sign-in_btn">
+        <span style="font-size: 13px;">Register</span>
+      </button>
+    
+      <div class="separator">
+        <hr class="line">
+        <span>or</span>
+        <hr class="line">
+      </div>
+      <button title="Sign In" type="submit" class="sign-in_fb">
+        <div class="fb-icon-container">
+          <i class="fab fa-facebook"></i>
+          <span style="font-size: 15px;">Sign In with Facebook</span>
+        </div>
+      </button>
+      
+      <button title="Sign In" type="submit" class="sign-in_ggl">
+        <i class="fab fa-google"></i>
+        <span style="font-size: 15px;">Sign In with Google</span>
+      </button>
+      
+      <button title="Sign In" type="submit" class="sign-in_apl">
+        <svg preserveAspectRatio="xMidYMid" version="1.1" viewBox="0 0 256 315" height="20px" width="16px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+          <g>
+            <path fill="#ffffff" d="M213.803394,167.030943 C214.2452,214.609646 255.542482,230.442639 256,230.644727 C255.650812,231.761357 249.401383,253.208293 234.24263,275.361446 C221.138555,294.513969 207.538253,313.596333 186.113759,313.991545 C165.062051,314.379442 158.292752,301.507828 134.22469,301.507828 C110.163898,301.507828 102.642899,313.596301 82.7151126,314.379442 C62.0350407,315.16201 46.2873831,293.668525 33.0744079,274.586162 C6.07529317,235.552544 -14.5576169,164.286328 13.147166,116.18047 C26.9103111,92.2909053 51.5060917,77.1630356 78.2026125,76.7751096 C98.5099145,76.3877456 117.677594,90.4371851 130.091705,90.4371851 C142.497945,90.4371851 165.790755,73.5415029 190.277627,76.0228474 C200.528668,76.4495055 229.303509,80.1636878 247.780625,107.209389 C246.291825,108.132333 213.44635,127.253405 213.803394,167.030988 M174.239142,50.1987033 C185.218331,36.9088319 192.607958,18.4081019 190.591988,0 C174.766312,0.636050225 155.629514,10.5457909 144.278109,23.8283506 C134.10507,35.5906758 125.195775,54.4170275 127.599657,72.4607932 C145.239231,73.8255433 163.259413,63.4970262 174.239142,50.1987249"></path>
+          </g>
+        </svg>
+        <span style="font-size: 15px;">Sign In with Apple</span>
+      </button>
+      <p class="note">Terms of use &amp; Conditions</p>
+    </form>
+  </section>
+
+
+
+  <a href="#" id="back-to-top" title="Back to Top" onclick="topFunction()"><img src="https://cdn-icons-png.flaticon.com/512/44/44889.png" alt="" style="width: 70%; justify-content: center; align-items: center; padding-top: 8px;"></a>
+</main>
+
+<script src="scr.js">
+  AOS.init({
+    duration: 2500 
+});
+
+</script>
+<script src="scr2.js"></script>
+
+</body>
+<div class="footer-main-div" style="padding-top: 40px;">
+    <div class="footer-menu-one" style="text-align: center;">
+      <div class="rating">
+        <input value="star-1" name="star-radio" id="star-1" type="radio">
+        <label for="star-1">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" pathLength="360"></path></svg>
+        </label>
+        <input value="star-1" name="star-radio" id="star-2" type="radio">
+        <label for="star-2">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" pathLength="360"></path></svg>
+        </label>
+        <input value="star-1" name="star-radio" id="star-3" type="radio">
+        <label for="star-3">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" pathLength="360"></path></svg>
+        </label>
+        <input value="star-1" name="star-radio" id="star-4" type="radio">
+        <label for="star-4">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" pathLength="360"></path></svg>
+        </label>
+        <input value="star-1" name="star-radio" id="star-5" type="radio">
+        <label for="star-5">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" pathLength="360"></path></svg>
+        </label>
+      </div>
+      <br>
+      
+    </div>
+</div>
+<div class="footer-bottom" style="padding-bottom: 70px;">
+  <div class="footer-bottom-row">
+    <div class="bottom_column_1">
+      <h3 class="footer_heading" style="color: rgba(216, 216, 216, 0.807);">FOLLOW US ON</h3>
+      <ul class="footer-list">
+        <li class="footer-item">
+          <a href="https://www.facebook.com/huy.ht.1302" target="_blank" class="footer-item-link">
+            <i class="footer-item-icon fab fa-facebook"> <span style="font-size: 20px;">Facebook</span></i>
+          </a>
+        </li>
+        <li class="footer-item">
+          <a href="https://www.instagram.com/nasasolarsystem/" target="_blank" class="footer-item-link">
+            <i class="footer-item-icon fab fa-instagram"> <span style="font-size: 20px;">Instagram</span></i>
+          </a>
+        </li>
+        <li class="footer-item">
+          <a href="https://www.linkedin.com/in/huy-ht-7a5b9727b/" target="_blank" class="footer-item-link">
+            <i class="footer-item-icon fab fa-linkedin" > <span style="font-size: 20px;">LinkedIn</span></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+<div class="bottom_column_2">
+  <h3 class="footer_heading" style="color: rgba(216, 216, 216, 0.807);">CUSTOMER SERVICE</h3>
+  <ul class="footer-list">
+    <li class="footer-item">
+      <a href="" class="footer-item-link">Terms of Service</a>
+    </li>
+    <li class="footer-item">
+      <a href="" class="footer-item-link">Maintenance Policy</a>
+    </li>
+    <li class="footer-item">
+      <a href="" class="footer-item-link">Privacy Policy</a>
+    </li>
+    <li class="footer-item">
+      <a href="" class="footer-item-link">Website Administration Guide</a>
+    </li>
+  </ul>
+</div>
+
+<div class="bottom_column_3" style="margin-left: 50px;">
+  <h3 class="footer_heading" style="color: rgba(216, 216, 216, 0.807);">CUSTOMER SUPPORT</h3>
+  <ul class="footer-list" style="font-size: 5px;">
+    <li class="footer-item">
+      <a href="" class="footer-item-link">24/7 CONSULTING SUPPORT: 034583523</a>
+    </li>
+    <li class="footer-item">
+      <a href="" class="footer-item-link">24/7 FEEDBACK SUPPORT: 874207400</a>
+    </li>
+    <li class="footer-item">
+      <a href="" class="footer-item-link">Follow us</a>
+    </li>
+  </ul>
+</div>
+
+<div class="bottom_column_4" style="margin-left: 50px;">
+  <h3 class="footer_heading" style="color: rgba(216, 216, 216, 0.807);">QR TO JOIN OUR PAGE</h3>
+  <div class="footer_download">
+    <img src="qr_code.png" alt="Download QR" class="footer-download-qr">
+    <a href="" class="footer-download-app-link"></a>
+    
+  </div>
+</div>
+  </div>
+</div>
+
+<div class="footer-end">
+  
+    <p><u>Making by</u>: <b><span style="font-size: 20px; font-family: 'Dancing Script', cursive;"> Nguyễn Lê Châu Ngân - Hồ Thanh Huy</span></b></p>
+    <p>Copyright ©2023 SolarSystem.Com</p>
+</div>
+</div>
+</html>
